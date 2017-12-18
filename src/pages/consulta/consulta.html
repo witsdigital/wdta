@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons end>
+      <button ion-button menuToggle>
+        <ion-icon name="medkit"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-searchbar [animated]="true" placeholder="Sintomas?" (ionInput)="getSintomas($event)"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="tem" class="itemsearch">
+    
+          <ion-item class=""  *ngFor="let item of items">
+            <div (click)="sintomas(item)" class="">
+              {{ item.nome }}
+            </div>
+          </ion-item>
+  </div>
+
+</ion-content>
