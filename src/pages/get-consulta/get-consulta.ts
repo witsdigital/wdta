@@ -1,3 +1,4 @@
+import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,15 +16,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GetConsultaPage {
   sintomas: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  patologias: any;
+  constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
-
+    this.getP();
     console.log(this.sintomas);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GetConsultaPage');
+  }
+
+  getP(){
+    this.service.getPatologias(this.sintomas).subscribe((data)=>{
+      this.patologias = data;
+      console.log(this.patologias);
+    },(error)=>{
+  
+    });
   }
 
 }
