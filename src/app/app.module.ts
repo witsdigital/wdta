@@ -1,4 +1,5 @@
-import { Http } from '@angular/http';
+import { GetConsultaPage } from './../pages/get-consulta/get-consulta';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -18,7 +19,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    ConsultaPage
+    ConsultaPage,
+    GetConsultaPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    ConsultaPage
+    ConsultaPage,
+    GetConsultaPage
   ],
   providers: [
     StatusBar,

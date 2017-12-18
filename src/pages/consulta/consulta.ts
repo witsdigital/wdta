@@ -1,6 +1,7 @@
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GetConsultaPage } from '../get-consulta/get-consulta';
 
 /**
  * Generated class for the ConsultaPage page.
@@ -16,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConsultaPage {
 
-
+  sintomas: any =[];
 
   tem:any;
 
@@ -70,5 +71,21 @@ this.initializeItems();
       }
     
 
+    addSintomas(item) {
 
+      this.sintomas.push(item);
+        console.log(this.sintomas);
+    }
+
+    delete(item){
+      const index = this.sintomas.indexOf(item);
+      this.sintomas.splice(index, 1);
+
+   }
+
+   consultar(){
+    this.navCtrl.push(GetConsultaPage, {
+      item: this.sintomas
+    }); 
+   }
 }

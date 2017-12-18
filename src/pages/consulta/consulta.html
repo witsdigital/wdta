@@ -5,7 +5,7 @@
         <ion-icon name="medkit"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-searchbar [animated]="true" placeholder="Sintomas?" (ionInput)="getSintomas($event)"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="pesquisa" [animated]="true" placeholder="Sintomas" (ionInput)="getSintomas($event)"></ion-searchbar>
 
   </ion-toolbar>
 </ion-header>
@@ -13,13 +13,33 @@
 
 <ion-content padding>
 
-  <div *ngIf="tem" class="itemsearch">
-    
+  <div *ngIf="tem" class="">
           <ion-item class=""  *ngFor="let item of items">
-            <div (click)="sintomas(item)" class="">
-              {{ item.nome }}
+            <div (click)="addSintomas(item); pesquisa=''; tem='';" class="">
+              {{item.nome}}
             </div>
           </ion-item>
   </div>
 
+
+<div *ngIf="sintomas" class="">
+
+<ion-item>FILTRO</ion-item>
+  
+
+    <ion-item class=""  *ngFor="let item of sintomas">
+        {{item.nome}}
+    <div (click)="delete(item)">
+      <ion-icon left name="close"></ion-icon>
+    </div>
+    </ion-item>
+
+
+
+
+<button ion-button (click)="consultar()">
+  <div>Consultar</div>
+</button>
+
+</div>
 </ion-content>
