@@ -1,3 +1,4 @@
+import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -16,20 +17,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class DetalheConsultaPage {
 
   sintomas: any;
+  allsintomas: any;
   patologia: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.sintomas = navParams.get("sin");
     this.patologia = navParams.get("pat");
-
+    this. getSintomas();
     console.log(this.patologia);
     console.log(this.sintomas);
+    
   
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalheConsultaPage');
   }
+
+  getSintomas(){
+    
+        this.service.getSintomasID(this.patologia).then((data)=>{
+         this.allsintomas = data;
+         console.log(this.allsintomas);
+            },(err)=>{
+        
+            });
+        
+    }
 
 
 }

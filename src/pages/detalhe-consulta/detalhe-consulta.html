@@ -15,4 +15,17 @@
 
 <ion-content padding>
 <h1>{{patologia.nome}}</h1>
+<div>
+    {{patologia.qtd}}/{{patologia.total}} 
+</div>
+
+<div *ngFor="let all of allsintomas">
+    {{all.nome}}
+  <div *ngFor="let item of sintomas">
+      <div *ngIf="all.nome == item.nome">
+      <ion-icon name="checkmark"></ion-icon>
+      <br>
+      </div>
+  </div>
+</div>
 </ion-content>
