@@ -17,24 +17,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class GetConsultaPage {
   sintomas: any;
   patologias: any;
+
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
     this.getP();
-    console.log(this.sintomas);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GetConsultaPage');
   }
 
-  getP(){
-    this.service.getPatologias(this.sintomas).subscribe((data)=>{
-      this.patologias = data;
-      console.log(this.patologias);
-    },(error)=>{
+
+
   
-    });
-  }
+  getP(){
+    
+        this.service.getPatologias(this.sintomas).then((data)=>{
+         this.patologias = data;
+            },(err)=>{
+        
+            });
+        
+    }
+
+    detalhes() {
+
+    }
+
+
 
 }

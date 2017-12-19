@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>get-consulta</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Consulta</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,13 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item *ngFor="let item of patologias">
+     
+     <div (click)="detalhes()">
+      {{item.nome}}
+    </div>
+    </ion-item>
+   
+  </ion-list>
 </ion-content>
