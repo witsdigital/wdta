@@ -1,3 +1,4 @@
+import { DetalheConsultaPage } from './../detalhe-consulta/detalhe-consulta';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -41,9 +42,12 @@ export class GetConsultaPage {
         
     }
 
-    detalhes() {
-
-    }
+    detalhes(item) {
+      this.navCtrl.push(DetalheConsultaPage, {
+        sin: this.sintomas,
+        pat: item
+      }); 
+     }
 
 
 
