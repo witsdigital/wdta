@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>detalhe-consulta</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>{{patologia.nome}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +18,7 @@
 <div>
     {{patologia.qtd}}/{{patologia.total}} 
 </div>
-<p>patologia.descricao</p>
+<p>{{patologia.descricao}}</p>
 <div *ngFor="let all of allsintomas">
     {{all.nome}}
   <div *ngFor="let item of sintomas">
