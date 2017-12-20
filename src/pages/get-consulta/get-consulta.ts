@@ -2,7 +2,7 @@ import { DetalheConsultaPage } from './../detalhe-consulta/detalhe-consulta';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { reorderArray } from 'ionic-angular';
 /**
  * Generated class for the GetConsultaPage page.
  *
@@ -16,20 +16,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'get-consulta.html',
 })
 export class GetConsultaPage {
+
   sintomas: any;
+  allsintomas: any;
   patologias: any;
 
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
-    this.getP();
+    this.getSintomas();
+
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GetConsultaPage');
   }
-
-
 
   
   getP(){
@@ -49,6 +51,16 @@ export class GetConsultaPage {
       }); 
      }
 
+     getSintomas(){
+      
+          this.service.getPatologiasSintomas(this.sintomas).then((data)=>{
+           this.allsintomas = data;
+           console.log(this.allsintomas);
+              },(err)=>{
+          
+              });
+          
+      }
 
 
 }

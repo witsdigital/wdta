@@ -18,18 +18,16 @@ export class DetalheConsultaPage {
 
   sintomas: any;
   allsintomas: any;
-  patologia: any
+  patologia: any;
+  qtd=0;
 
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.sintomas = navParams.get("sin");
     this.patologia = navParams.get("pat");
     this. getSintomas();
-    console.log(this.patologia);
-    console.log(this.sintomas);
-    
-  
-  }
 
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalheConsultaPage');
   }
@@ -38,12 +36,12 @@ export class DetalheConsultaPage {
     
         this.service.getSintomasID(this.patologia).then((data)=>{
          this.allsintomas = data;
-         console.log(this.allsintomas);
             },(err)=>{
         
             });
         
-    }
+  }
+
 
 
 }
