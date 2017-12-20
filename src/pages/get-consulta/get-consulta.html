@@ -19,7 +19,8 @@
         <div (click)="detalhes(item)">
             {{item.nome}} 
         </div>  
-     {{item.qtd}}/{{item.total}} 
+     {{item.qtd}}/{{item.total}}
+   ({{item.porcentagem | number:'1.1-2'}}%)
 
     </ion-item>
    

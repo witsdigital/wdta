@@ -3,6 +3,7 @@ import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { reorderArray } from 'ionic-angular';
+import { DecimalPipe } from '@angular/common';
 /**
  * Generated class for the GetConsultaPage page.
  *

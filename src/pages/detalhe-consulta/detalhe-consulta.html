@@ -16,7 +16,7 @@
 <ion-content padding>
 <h1>{{patologia.nome}}</h1>
 <div>
-    {{patologia.qtd}}/{{patologia.total}} 
+    {{patologia.qtd}}/{{patologia.total}} ({{patologia.porcentagem | number:'1.1-2'}}%)
 </div>
 <p>{{patologia.descricao}}</p>
 <div *ngFor="let all of allsintomas">

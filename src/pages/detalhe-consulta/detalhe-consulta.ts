@@ -1,6 +1,7 @@
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DecimalPipe } from '@angular/common';
 
 /**
  * Generated class for the DetalheConsultaPage page.
@@ -27,7 +28,7 @@ export class DetalheConsultaPage {
     this. getSintomas();
 
   }
-  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalheConsultaPage');
   }
