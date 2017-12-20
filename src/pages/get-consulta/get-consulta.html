@@ -18,9 +18,12 @@
   <ion-list>
     <ion-item *ngFor="let item of patologias">
      
-     <div (click)="detalhes()">
-      {{item.nome}}
+     <div (click)="detalhes(item)">
+      {{item.nome}} 
     </div>
+    <div>
+     {{item.qtd}}/{{item.total}} 
+     </div> 
     </ion-item>
    
   </ion-list>

@@ -1,3 +1,4 @@
+import { DetalheConsultaPage } from './../pages/detalhe-consulta/detalhe-consulta';
 import { GetConsultaPage } from './../pages/get-consulta/get-consulta';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,7 +21,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     ListPage,
     ConsultaPage,
-    GetConsultaPage
+    GetConsultaPage,
+    DetalheConsultaPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     ListPage,
     ConsultaPage,
-    GetConsultaPage
+    GetConsultaPage,
+    DetalheConsultaPage
   ],
   providers: [
     StatusBar,
