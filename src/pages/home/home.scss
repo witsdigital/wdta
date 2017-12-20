@@ -2,6 +2,7 @@ page-home {
 
 .boxblueiner{
   color: #fff;
+  font-size: 12px;
   background-color: #00b0fe;
 display: -webkit-flex;
 display: flex;
@@ -12,6 +13,7 @@ justify-content: center;
 border-radius: 0px 0px 0px 50px;
 }
 .boxblue{
+  font-size: 12px;
 color: #fff;
   background-color: #00b0fe;
 display: -webkit-flex;
@@ -26,6 +28,7 @@ justify-content: center;
 
 .boxcomum1{
   color: #00b0fe;
+  font-size: 12px;
   border-style: solid;
     border-width: 1px;
     border-color: #00b0fe;
@@ -39,6 +42,7 @@ justify-content: center;
 
 .boxcomum3{
     color: #00b0fe;
+      font-size: 12px;
   border-style: solid;
     border-width: 1px;
     border-color: #00b0fe;
@@ -65,8 +69,8 @@ justify-content: center;
 .menuhome{
 
 
-  padding: 0%;
-  margin-top: 5%;
+  padding: 5%;
+  margin-top: 0%;
   height: 100%;
 }
 }

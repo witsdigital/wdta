@@ -1,12 +1,13 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-menu class="header" [content]="content">
 
-  <ion-content>
-    <ion-list>
+  <ion-content class="header">
+    <div align="center" class="headermenu">
+    <img  src="/assets/user.png" alt="">
+    <p>Joao Marcelo Braz</p>
+    <h3>email@email.com</h3>
+    </div>
+
+    <ion-list class="iconsmenu">
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
