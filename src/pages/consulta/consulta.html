@@ -1,18 +1,17 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons end>
-      <button ion-button menuToggle>
-        <ion-icon name="medkit"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-searchbar [(ngModel)]="pesquisa" [animated]="true" placeholder="Sintomas" (ionInput)="getSintomas($event)"></ion-searchbar>
 
-  </ion-toolbar>
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content >
+  <div class="boxsearsh" >
+    <ion-searchbar class="searbarr" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite o sintoma" (ionInput)="getSintomas($event)"></ion-searchbar>
   <div *ngIf="tem" class="">
           <ion-item class=""  *ngFor="let item of items">
             <div (click)="addSintomas(item); pesquisa=''; tem='';" class="">
@@ -21,25 +20,23 @@
           </ion-item>
   </div>
 
+  </div>
 
-<div *ngIf="sintomas" class="">
-
-<ion-item>FILTRO</ion-item>
-  
-
-    <ion-item class=""  *ngFor="let item of sintomas">
+  <ion-item-group>
+     <ion-item-divider color="light">Filtros</ion-item-divider>
+     <ion-list>
+    <ion-item class="itensdoencas" *ngFor="let item of sintomas">
         {{item.nome}}
-    <div (click)="delete(item)">
-      <ion-icon left name="close"></ion-icon>
-    </div>
+      <ion-icon class="iconclose" (click)="delete(item)" name="ios-trash-outline" item-end></ion-icon>
     </ion-item>
+  </ion-list>
 
+   </ion-item-group>
+<div class="" padding>
 
+   <button [disabled]="sintomas.length==0" class="btnconsult" color="secondary" ion-button (click)="consultar()" round>
+   Consultar
+   </button>
+   </div>
 
-
-<button ion-button (click)="consultar()">
-  <div>Consultar</div>
-</button>
-
-</div>
 </ion-content>

@@ -14,12 +14,8 @@ export class HomePage {
 
 
   openConsulta(item){
-    let modal = this.modalCtrl.create(ConsultaPage, {ct: item});
-    modal.onDidDismiss(data => {
+    this.navCtrl.setRoot(ConsultaPage, {ct: item});
 
-
-    });
-    modal.present();
 
   }
 

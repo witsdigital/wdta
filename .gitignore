@@ -2,6 +2,7 @@
 .dropbox
 .vscode
 .editorconfig
+.sourcemaps
 gitignore
 www/
 src/providers/service

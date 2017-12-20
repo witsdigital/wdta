@@ -1,3 +1,42 @@
 page-consulta {
+  .searchbar {
+    .searchbar-search-icon{
+      margin-left: calc(50% - 70.5px);
+            margin-top: 15px;
+    }
+background: none;
+    .searchbar-input {
+      margin-top: 10px;
+      height: 50px;
+      border-style: solid;
+      border-color: #d4d4d4;
+        border-width: 1px;
+        padding: 0 28px;
+        border-radius: 50px;
+        height: 4rem;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #000;
+        background-color: #fff;
+    }
+  }
+.itensdoencas{
+  color: #00b0fe;
+}
+.boxsearsh{
+  padding: 10px 0px 15px 0px;
+}
 
+.btnconsult{
+  margin-top: 5%;
+}
+.iconclose{
+  color: red;
+}
+.searbarr{
+
+  input{
+    border-radius: 50px;
+  }
+}
 }
