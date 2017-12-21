@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
   <ion-row>
     <ion-col col-12>
       <h1 class="titpatologoia">{{patologia.nome}}</h1>
@@ -45,13 +45,17 @@
 
 </div>
 <p>{{patologia.descricao}}</p>
-<div *ngFor="let all of allsintomas">
-    {{all.nome}}
-  <div *ngFor="let item of sintomas">
-      <div *ngIf="all.nome == item.nome">
-      <ion-icon name="checkmark"></ion-icon>
-      <br>
-      </div>
-  </div>
+
+<ion-item-group>
+    <ion-item-divider class="titlesintomas" color="primary">Sintomas</ion-item-divider><br>
+<div *ngFor="let all of allsintomas let i = index" >
+  <ion-item   >
+  {{all.nome}} {{i}}
+      </ion-item>
 </div>
+
+
+  </ion-item-group>
+
+
 </ion-content>

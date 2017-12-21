@@ -21,11 +21,14 @@ export class DetalheConsultaPage {
   allsintomas: any;
   patologia: any;
   qtd=0;
+  newsintomas:any = {nome:'', st:''};
+  newsint:any = [];
 
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.sintomas = navParams.get("sin");
     this.patologia = navParams.get("pat");
     this. getSintomas();
+
 
   }
 
@@ -34,13 +37,43 @@ export class DetalheConsultaPage {
   }
 
   getSintomas(){
-    
+
         this.service.getSintomasID(this.patologia).then((data)=>{
          this.allsintomas = data;
+        for(let i in data){
+          for(let a in this.sintomas){
+            if(this.allsintomas[i].nome == this.sintomas[a].nome){
+this.newsint.push({nome:this.allsintomas[i].nome, st:1})
+
+
+
+          }else{
+this.newsint.push({nome:this.allsintomas[i].nome, st:0})
+
+          }
+          }
+
+
+        }
+        console.log(this.newsint);
             },(err)=>{
-        
+
             });
-        
+
+
+
+  }
+  calcinfo(){
+    for(let i=0; i<this.allsintomas.length-1; i++){
+        for(let a = 0; a<this.sintomas.length-1;a++){
+            if(this.allsintomas[i].nome == this.sintomas[a].nome){
+              console.log('esta');
+
+            }
+
+        }
+
+    }
   }
 
 
