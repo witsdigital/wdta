@@ -1,6 +1,32 @@
 page-get-consulta {
     .item {
-        color: rgb(0, 0, 0);
- 
+        color: green;
+    
+        font-size: 15px;
+        font-weight: lighter;
+
+    }
+    .dadosinfo{
+      text-align: center;
+      font-size: 9px;
+      color: blue;
+      font-weight: lighter;
+    }
+    .dadosinfopercen{
+      text-align: center;
+      font-size: 9px;
+      color: blue;
+      font-weight:lighter;
+      margin-top: -25%;
+    }
+    .boxdadosinfo{
+
+    }
+    .boxtotalcorres{
+      text-align: center;
+      font-weight: bold;
+      color: green;
+      font-size: 19px;
+
     }
 }

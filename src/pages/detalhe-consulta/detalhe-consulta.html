@@ -14,9 +14,35 @@
 
 
 <ion-content padding>
-<h1>{{patologia.nome}}</h1>
+  <ion-row>
+    <ion-col col-12>
+      <h1 class="titpatologoia">{{patologia.nome}}</h1>
+    </ion-col>
+    <ion-col>
+      <div class="dadosinfo">
+        Correspondência
+        Patológica
+
+      </div>
+
+
+    </ion-col>
+    <ion-col>
+      <div class="boxtotalcorres">
+        {{patologia.qtd}}/{{patologia.total}}
+
+      </div>
+
+    </ion-col>
+    <ion-col>
+      <div class="dadosinfopercen">
+        ({{patologia.porcentagem | number:'1.1-2'}}%)
+      </div>
+    </ion-col>
+  </ion-row>
+
 <div>
-    {{patologia.qtd}}/{{patologia.total}} ({{patologia.porcentagem | number:'1.1-2'}}%)
+
 </div>
 <p>{{patologia.descricao}}</p>
 <div *ngFor="let all of allsintomas">
