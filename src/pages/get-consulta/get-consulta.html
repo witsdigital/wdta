@@ -13,16 +13,29 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
   <ion-list >
-    <ion-item *ngFor="let item of allsintomas"> 
+    <ion-item text-wrap *ngFor="let item of allsintomas">
         <div (click)="detalhes(item)">
-            {{item.nome}} 
-        </div>  
-     {{item.qtd}}/{{item.total}}
-   ({{item.porcentagem | number:'1.1-2'}}%)
+            {{item.nome}}
+        </div>
 
+
+<div class="boxdadosinfo" item-end>
+  <div class="dadosinfo">
+    Correspondência <br>
+    Patológica<br>
+
+  </div>
+     <div class="boxtotalcorres">
+       {{item.qtd}}/{{item.total}}
+
+     </div> <Br>
+           <div class="dadosinfopercen">
+             ({{item.porcentagem | number:'1.1-2'}}%)
+           </div>
+</div>
     </ion-item>
-   
+
   </ion-list>
 </ion-content>
