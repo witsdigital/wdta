@@ -1,3 +1,4 @@
+import { ConsultaPatologiaPage } from './../consulta-patologia/consulta-patologia';
 import { LoginPage } from './../login/login';
 import { ConsultaPage } from './../consulta/consulta';
 import { Component } from '@angular/core';
@@ -23,6 +24,10 @@ export class HomePage {
 
   openConsulta(item){
     this.navCtrl.setRoot(ConsultaPage, {ct: item});
+  }
+
+  openConsultaP(item){
+    this.navCtrl.setRoot(ConsultaPatologiaPage, {ct: item});
   }
 
   login (){

@@ -1,0 +1,29 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Consulta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <div class="boxsearsh" >
+    <ion-searchbar class="searbarr" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite o sintoma" (ionInput)="getSintomas($event)"></ion-searchbar>
+  <div *ngIf="tem" class="">
+          <ion-item class=""  *ngFor="let item of items">
+            <div (click)="consultar(item)">
+              {{item.nome}}
+            </div>
+          </ion-item>
+  </div>
+
+  </div>
+
+
+
+
+
+</ion-content>

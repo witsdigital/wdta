@@ -17,6 +17,8 @@ import { ConsultaPage } from '../pages/consulta/consulta';
 import { ServiceProvider } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
 import { RecPassPage } from '../pages/rec-pass/rec-pass';
+import { ConsultaPatologiaPage } from '../pages/consulta-patologia/consulta-patologia';
+import { DetalhePatologiaPage } from '../pages/detalhe-patologia/detalhe-patologia';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RecPassPage } from '../pages/rec-pass/rec-pass';
     DetalheConsultaPage,
     LoginPage,
     CadUserPage,
-    RecPassPage
+    RecPassPage,
+    ConsultaPatologiaPage,
+    DetalhePatologiaPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { RecPassPage } from '../pages/rec-pass/rec-pass';
     DetalheConsultaPage,
     LoginPage,
     CadUserPage,
-    RecPassPage
+    RecPassPage,
+    ConsultaPatologiaPage,
+    DetalhePatologiaPage
   ],
   providers: [
     StatusBar,

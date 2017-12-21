@@ -22,6 +22,9 @@ api:string = 'http://www.meupainel.com.br/dta/';
     return this.http.get(this.api+'sintomas/getappSintomas').map(res=> res.json())
   }
   
+  getPat(){
+    return this.http.get(this.api+'patologias/getappPatologias').map(res=> res.json())
+  }
  
 
   getPatologias(credentials) {
