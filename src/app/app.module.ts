@@ -1,3 +1,5 @@
+import { CadUserPage } from './../pages/cad-user/cad-user';
+import { LoginPage } from './../pages/login/login';
 import { DetalheConsultaPage } from './../pages/detalhe-consulta/detalhe-consulta';
 import { GetConsultaPage } from './../pages/get-consulta/get-consulta';
 
@@ -14,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConsultaPage } from '../pages/consulta/consulta';
 import { ServiceProvider } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
+import { RecPassPage } from '../pages/rec-pass/rec-pass';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HttpModule } from '@angular/http';
     ListPage,
     ConsultaPage,
     GetConsultaPage,
-    DetalheConsultaPage
+    DetalheConsultaPage,
+    LoginPage,
+    CadUserPage,
+    RecPassPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,10 @@ import { HttpModule } from '@angular/http';
     ListPage,
     ConsultaPage,
     GetConsultaPage,
-    DetalheConsultaPage
+    DetalheConsultaPage,
+    LoginPage,
+    CadUserPage,
+    RecPassPage
   ],
   providers: [
     StatusBar,

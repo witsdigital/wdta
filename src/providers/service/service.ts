@@ -56,17 +56,6 @@ getPatologiasSintomas(credentials) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
   getSintomasID(credentials) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
@@ -79,6 +68,65 @@ getPatologiasSintomas(credentials) {
         });
     });
   }
+
+  
+  postDatas(credentials, type) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'apilogin/logarapp', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+
+
+upPass(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'apilogin/updatePass', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+postCadUser(credentials, type) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'apilogin/cadastropp', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+postPass(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'apilogin/recpass', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
 
 
 
