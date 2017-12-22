@@ -16,9 +16,9 @@ import {LoginPage} from '../login/login';
 export class CadUserPage {
 
 
-  cadastro:any = {};
-  cidades:any;
-  mensage:any;
+cadastro:any = {};
+cidades:any;
+mensage:any;
 dadospush:any;
 
   constructor( public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public viewCtrl: ViewController, public service: ServiceProvider) {
@@ -36,6 +36,50 @@ dadospush:any;
 
   salvar(cad:any){
 
-  }
+  this.service.postCadUser(cad,'2').then((result)=>{
+  console.log(result);
+this.mensage = result;
+if(this.mensage.mensage==1){
+
+let toast = this.toastCtrl.create({
+  message: 'Login já esta em uso',
+  duration: 3000,
+  position: 'top',
+cssClass: "toast-error"
+});
+toast.present();
+
+}
+if(this.mensage.mensage==2){
+
+let toast = this.toastCtrl.create({
+  message: 'CPF já esta em uso',
+  duration: 3000,
+  position: 'top',
+cssClass: "toast-error"
+});
+toast.present();
+
+}
+if(this.mensage.mensage==3){
+
+let toast = this.toastCtrl.create({
+  message: 'Cadastro Realizado com sucesso',
+  duration: 3000,
+  position: 'top',
+cssClass: "toast-success"
+});
+toast.present();
+     this.navCtrl.push(LoginPage);
+
+}
+
+  },(err)=>{
+    console.log(err);
+  });
+
+
+}
+
 
 }
