@@ -45,13 +45,19 @@ page-detalhe-consulta {
     .noexisites{
       background-color: #fff;
     }
+    .listsinto{
+      color: green;
+      font-size: 14px;
+      font-weight: lighter;
+    }
     .boxtotalcorres{
             padding: 10px;
-      color: #00b0fe;
+      color: #fff;
       font-size: 15px;
       border-style: solid;
         border-width: 1px;
-        border-color: #00b0fe;
+        border-color: green;
+        background-color: green;
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
