@@ -3,8 +3,8 @@
   <ion-content class="header">
     <div align="center" class="headermenu">
     <img  src="/assets/user.png" alt="">
-    <p>{{dadosUser[0].nome}}</p>
-    <h3>{{dadosUser[0].email}}</h3>
+    <p *ngIf="dadosUser.length>0">{{dadosUser[0].nome}}</p>
+    <h3 *ngIf="dadosUser.length>0">{{dadosUser[0].email}}</h3>
     </div>
 
     <ion-list class="iconsmenu">

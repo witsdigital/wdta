@@ -17,14 +17,17 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   dadosUser: any = [];
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-   
+  
+    
     this.initializeApp();
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage }
     ];
-    
-    this.dadosUser = JSON.parse(localStorage.getItem('dta_user'));
+
+    if(localStorage.getItem('dta_user')){
+      this.dadosUser = JSON.parse(localStorage.getItem('dta_user'));
+   }
 
   }
 
