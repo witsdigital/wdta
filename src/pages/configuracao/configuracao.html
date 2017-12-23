@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ConfiguracaoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Configurações</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="content"  >
+  <p (click)="editarimg()" class="bteditimg">Editar</p>
+<div class="headerprof">
+<div class="circle">
+  <img src="/assets/user.png" alt="">
+</div>
+<div class="infoprofile">
+<h2>{{dadosUser[0].nome}}</h2>
+<p>Email: {{dadosUser[0].email}}</p>
+<p>Usuario: {{dadosUser[0].login}}</p>
+<p>CPF: {{dadosUser[0].cpf}}</p>
+</div>
+
+
+
+</div>
+
+<button (click)="share()" ion-item>
+<ion-icon name="ios-share-outline" item-start></ion-icon>
+<p>Compartilhar</p>
+</button>
+
+
+<button (click)="sair()" ion-item>
+<ion-icon name="ios-exit-outline" item-start></ion-icon>
+<p>Sair</p>
+</button>
+</ion-content>
+

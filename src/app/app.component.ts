@@ -15,7 +15,7 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
-  dadosUser: any = [];
+  dadosUser: any;
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
   
     
@@ -27,7 +27,7 @@ export class MyApp {
 
     if(localStorage.getItem('dta_user')){
       this.dadosUser = JSON.parse(localStorage.getItem('dta_user'));
-   }
+    }
 
   }
 

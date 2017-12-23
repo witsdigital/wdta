@@ -1,6 +1,6 @@
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import {  NavController, LoadingController, NavParams, ToastController,ModalController  } from 'ionic-angular';
+import {  NavController, LoadingController, NavParams, ToastController,ModalController, MenuController  } from 'ionic-angular';
 import {ServiceProvider} from '../../providers/service/service';
 import { Http } from '@angular/http';
 import {CadUserPage} from '../cad-user/cad-user';
@@ -24,10 +24,12 @@ export class LoginPage {
   responseData : any;
   userData:any = {};
 
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public navParams: NavParams, public toastCtrl:ToastController, public service: ServiceProvider,public http: Http,public modalCtrl: ModalController ) {
-if(localStorage.getItem('dta_user')){
+  constructor(public menu: MenuController,public navCtrl: NavController, public loadingCtrl: LoadingController, public navParams: NavParams, public toastCtrl:ToastController, public service: ServiceProvider,public http: Http,public modalCtrl: ModalController ) {
+    this.menu.enable(false);
+    if(localStorage.getItem('dta_user')){
    this.navCtrl.push(HomePage);
 }
+
 
 
   }

@@ -2,7 +2,8 @@ import { ConsultaPatologiaPage } from './../consulta-patologia/consulta-patologi
 import { LoginPage } from './../login/login';
 import { ConsultaPage } from './../consulta/consulta';
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, MenuController } from 'ionic-angular';
+import { ConfiguracaoPage } from '../configuracao/configuracao';
 
 @Component({
   selector: 'page-home',
@@ -10,17 +11,18 @@ import { NavController, ModalController } from 'ionic-angular';
 })
 export class HomePage {
   dadosUser: any;
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public modalCtrl: ModalController) {
+   
+  }
+
+  ionViewDidLoad() {
     if(localStorage.getItem('dta_user')){
       this.dadosUser = JSON.parse(localStorage.getItem('dta_user'));
+      this.menu.enable(true);
    } else {
     this.navCtrl.push(LoginPage);
    }
-
-
-   console.log(this.dadosUser);
   }
-
 
   openConsulta(item){
     this.navCtrl.setRoot(ConsultaPage, {ct: item});
@@ -28,6 +30,10 @@ export class HomePage {
 
   openConsultaP(item){
     this.navCtrl.setRoot(ConsultaPatologiaPage, {ct: item});
+  }
+
+  openConfiguracao(){
+    this.navCtrl.push(ConfiguracaoPage);
   }
 
   login (){
