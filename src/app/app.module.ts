@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceProvider } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { UpdatePassPage } from '../pages/update-pass/update-pass';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     RecPassPage,
     ConsultaPatologiaPage,
     DetalhePatologiaPage,
-    ConfiguracaoPage
+    ConfiguracaoPage,
+    UpdatePassPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     RecPassPage,
     ConsultaPatologiaPage,
     DetalhePatologiaPage,
-    ConfiguracaoPage
+    ConfiguracaoPage,
+    UpdatePassPage
   ],
   providers: [
     StatusBar,

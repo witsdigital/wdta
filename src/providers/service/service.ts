@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 
 /*
   Generated class for the ServiceProvider provider.
-
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular DI.
 */
@@ -47,6 +46,20 @@ getPatologiasSintomas(credentials) {
     let headers = new Headers();
 
     this.http.post(this.api+'patologias/getpatologiassintomas', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+getSintomasTipo(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'sintomas/getSintomasTipo', JSON.stringify(credentials), {headers: headers})
       .subscribe(res => {
         resolve(res.json());
       }, (err) => {

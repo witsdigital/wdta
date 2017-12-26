@@ -88,4 +88,16 @@ this.initializeItems();
       item: this.sintomas
     }); 
    }
+
+   consultarTipo(tipo){
+    this.service.getSintomasTipo(tipo).then((data)=>{
+       this.lista = data;
+       console.log(this.lista);
+       this.items = this.lista;
+          },(err)=>{
+      
+          });
+   }
+
+
 }

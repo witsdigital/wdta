@@ -10,6 +10,21 @@
 
 
 <ion-content >
+
+    <div padding>
+        <ion-segment [(ngModel)]="pet">
+          <ion-segment-button (ionSelect)="getDados()" value="kittens">
+          Todos
+          </ion-segment-button>
+          <ion-segment-button (ionSelect)="consultarTipo(1)" value="puppies">
+          Exames
+          </ion-segment-button>
+          <ion-segment-button (ionSelect)="consultarTipo(0)" value="fim">
+          Sintomas
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
   <div class="" >
     <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite o sintoma" (ionInput)="getSintomas($event)"></ion-searchbar>
   <div *ngIf="tem" class="">
