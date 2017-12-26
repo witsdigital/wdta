@@ -21,8 +21,8 @@ export class ConsultaPage {
 
   tem:any;
 
-  lista:any[];
-  items: any[];
+  lista:any;
+  items: any;
 
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
   

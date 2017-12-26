@@ -12,17 +12,18 @@
 <ion-content >
 
     <div padding>
-        <ion-segment [(ngModel)]="pet">
-          <ion-segment-button (ionSelect)="getDados()" value="kittens">
-          Todos
-          </ion-segment-button>
-          <ion-segment-button (ionSelect)="consultarTipo(1)" value="puppies">
-          Exames
-          </ion-segment-button>
-          <ion-segment-button (ionSelect)="consultarTipo(0)" value="fim">
-          Sintomas
-          </ion-segment-button>
-        </ion-segment>
+   
+        <ion-segment [(ngModel)]="relationship" color="primary">
+            <ion-segment-button value="todos" (ionSelect)="getDados()" isActive>
+              Todos
+            </ion-segment-button>
+            <ion-segment-button value="sintomas" (ionSelect)="consultarTipo(0)">
+              Sintomas
+            </ion-segment-button>
+            <ion-segment-button value="exames" (ionSelect)="consultarTipo(1)">
+                Exames
+            </ion-segment-button>
+          </ion-segment>
       </div>
 
   <div class="" >
