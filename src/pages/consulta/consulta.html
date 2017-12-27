@@ -18,9 +18,9 @@
           <ion-item>
             <ion-label>Pesquisar por:</ion-label>
             <ion-select interface="popover">
-              <ion-option value="todos" selected (ionSelect)="getDados()">Todos</ion-option>
-              <ion-option value="sintomas" (ionSelect)="consultarTipo(0)">Sintomas</ion-option>
-              <ion-option value="exames" (ionSelect)="consultarTipo(1)">Exames</ion-option>
+              <ion-option value="exames" (ionSelect)="consultarTipo(1); pesquisa='';">Exames</ion-option>
+              <ion-option value="sintomas" (ionSelect)="consultarTipo(0); pesquisa='';">Sintomas</ion-option>
+              <ion-option value="todos" selected (ionSelect)="getDados(); pesquisa='';">Todos</ion-option>
             </ion-select>
           </ion-item>
     </div>
