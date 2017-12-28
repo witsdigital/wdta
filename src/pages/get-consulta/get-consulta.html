@@ -13,7 +13,19 @@
 </ion-header>
 
 
+
 <ion-content >
+
+    <div padding>
+        <ion-item>
+          <ion-label>Pesquisar por:</ion-label>
+          <ion-select interface="popover">
+            <ion-option value="Patologias" (ionSelect)="filtro(0); pesquisa='';">Patologias</ion-option>
+            <ion-option value="Medicamento" (ionSelect)="filtro(1); pesquisa='';">Medicamentos</ion-option>
+            <ion-option value="todos" selected (ionSelect)="getSintomas(); pesquisa='';">Todos</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
   <ion-list >
     <ion-item text-wrap *ngFor="let item of allsintomas">
         <div (click)="detalhes(item)">

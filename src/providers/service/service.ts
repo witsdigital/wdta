@@ -55,6 +55,21 @@ getPatologiasSintomas(credentials) {
 
 }
 
+
+getPatologiasSintomasTipo(credentials, tipo) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'patologias/getpatologiassintomastipo/'+tipo, JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
 getSintomasTipo(credentials) {
   return new Promise((resolve, reject) => {
     let headers = new Headers();

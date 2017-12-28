@@ -63,5 +63,14 @@ export class GetConsultaPage {
           
       }
 
+      filtro(tipo){
+        this.service.getPatologiasSintomasTipo(this.sintomas, tipo).then((data)=>{
+          this.allsintomas = data;
+          console.log(this.allsintomas);
+             },(err)=>{
+         
+             });
+      }
+
 
 }
