@@ -22,9 +22,11 @@ import { ServiceProvider } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { UpdatePassPage } from '../pages/update-pass/update-pass';
+import {TextDetalhePage} from '../pages/text-detalhe/text-detalhe';
 
 @NgModule({
   declarations: [
+    TextDetalhePage,
     MyApp,
     HomePage,
     ListPage,
@@ -46,6 +48,7 @@ import { UpdatePassPage } from '../pages/update-pass/update-pass';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    TextDetalhePage,
     MyApp,
     HomePage,
     ListPage,

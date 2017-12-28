@@ -44,8 +44,12 @@ Ionic pages and navigation.
   <div>
 
   </div>
-  <p>{{patologia.descricao}}</p>
+  <div class="descpato">
 
+
+  <p >{{patologia.descricao | slice:0:400}}...</p>
+  <button ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
+</div>
   <ion-item-group>
   <ion-item-divider class="titlesintomas" color="light">Sintomas</ion-item-divider>
   <ion-item class="listsinto" *ngFor="let all of allsintomas let i = index">

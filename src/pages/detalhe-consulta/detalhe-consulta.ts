@@ -1,8 +1,8 @@
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
-
+import {TextDetalhePage} from '../text-detalhe/text-detalhe';
 /**
  * Generated class for the DetalheConsultaPage page.
  *
@@ -24,7 +24,7 @@ export class DetalheConsultaPage {
   newsintomas:any = {nome:'', st:''};
   newsint:any = [];
 
-  constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl:ModalController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.sintomas = navParams.get("sin");
     this.patologia = navParams.get("pat");
     this. getSintomas();
@@ -36,6 +36,15 @@ export class DetalheConsultaPage {
     console.log('ionViewDidLoad DetalheConsultaPage');
   }
 
+exibidesc(simtoma){
+  console.log(simtoma);
+  let modal = this.modalCtrl.create(TextDetalhePage,{texto:simtoma});
+  modal.onDidDismiss(data => {
+
+
+  });
+  modal.present();
+}
   getSintomas(){
 
         this.service.getSintomasID(this.patologia).then((data)=>{

@@ -25,9 +25,9 @@ export class ConsultaPage {
   items: any;
 
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
-  
+
   this.getDados();
-  
+
   }
 
   ionViewDidLoad() {
@@ -36,13 +36,13 @@ export class ConsultaPage {
 
 
   initializeItems() {
-    
+
         this.items = this.lista;
-    
+
      }
 
 getSintomas(ev: any) {
-  
+
 this.initializeItems();
     let val = ev.target.value;
     if (val && val.trim() != '') {
@@ -60,16 +60,16 @@ this.initializeItems();
   getDados(){
 
     this.service.getSintomas().subscribe((data)=>{
-    
+
      this.lista = data;
      console.log(this.lista);
      this.items = this.lista;
         },(err)=>{
-    
+
         });
-    
+
       }
-    
+
 
     addSintomas(item) {
 
@@ -86,7 +86,7 @@ this.initializeItems();
    consultar(){
     this.navCtrl.push(GetConsultaPage, {
       item: this.sintomas
-    }); 
+    });
    }
 
    consultarTipo(tipo){
@@ -95,7 +95,7 @@ this.initializeItems();
        console.log(this.lista);
        this.items = this.lista;
           },(err)=>{
-      
+
           });
    }
 
