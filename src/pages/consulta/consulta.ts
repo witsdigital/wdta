@@ -18,6 +18,8 @@ export class ConsultaPage {
 
   sintomas: any =[];
 
+  filtro: any = []
+
   tem:any;
 
   lista:any;
@@ -72,7 +74,23 @@ this.initializeItems();
 
     addSintomas(item) {
 
-      this.sintomas.push(item);
+     
+      var count = 0;
+      if (this.sintomas.length==0){
+        this.sintomas.push(item);
+      } else {
+
+        for (var i = 0; i < this.sintomas.length; i++) {
+          if (item == this.sintomas[i]){
+            count++;
+        } 
+      }
+      if (count == 0) {
+        this.sintomas.push(item);
+      }    
+        
+      }
+      console.log(this.filtro);
         console.log(this.sintomas);
     }
 
