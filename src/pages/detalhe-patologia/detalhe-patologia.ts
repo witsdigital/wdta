@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-detalhe-patologia',
   templateUrl: 'detalhe-patologia.html',

@@ -11,7 +11,6 @@ import { DecimalPipe } from '@angular/common';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-get-consulta',
   templateUrl: 'get-consulta.html',
@@ -27,40 +26,40 @@ export class GetConsultaPage {
     this.sintomas = navParams.get("item");
     this.getSintomas();
 
-    
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GetConsultaPage');
   }
 
-  
+
   getP(){
-    
+
         this.service.getPatologias(this.sintomas).then((data)=>{
          this.patologias = data;
             },(err)=>{
-        
+
             });
-        
+
     }
 
     detalhes(item) {
       this.navCtrl.push(DetalheConsultaPage, {
         sin: this.sintomas,
         pat: item
-      }); 
+      });
      }
 
      getSintomas(){
-      
+
           this.service.getPatologiasSintomas(this.sintomas).then((data)=>{
            this.allsintomas = data;
            console.log(this.allsintomas);
               },(err)=>{
-          
+
               });
-          
+
       }
 
       filtro(tipo){
@@ -68,7 +67,7 @@ export class GetConsultaPage {
           this.allsintomas = data;
           console.log(this.allsintomas);
              },(err)=>{
-         
+
              });
       }
 

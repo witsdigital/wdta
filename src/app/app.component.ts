@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import {ConfiguracaoPage} from '../pages/configuracao/configuracao';
+import {ConsultaPage} from '../pages/consulta/consulta';
+import {ConsultaPatologiaPage} from '../pages/consulta-patologia/consulta-patologia';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,12 +20,16 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   dadosUser: any;
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-  
-    
+
+
     this.initializeApp();
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Configuração', component: ConfiguracaoPage },
+      { title: 'Consulta', component: ConsultaPage },
+      { title: 'Condições Patológicas', component: ConsultaPatologiaPage }
+
+
     ];
 
     if(localStorage.getItem('dta_user')){

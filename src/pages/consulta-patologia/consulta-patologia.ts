@@ -10,7 +10,6 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-consulta-patologia',
   templateUrl: 'consulta-patologia.html',

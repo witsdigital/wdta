@@ -10,7 +10,6 @@ import { GetConsultaPage } from '../get-consulta/get-consulta';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-consulta',
   templateUrl: 'consulta.html',

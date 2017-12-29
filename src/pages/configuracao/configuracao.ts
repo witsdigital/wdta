@@ -9,7 +9,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-configuracao',
   templateUrl: 'configuracao.html',
@@ -17,7 +17,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class ConfiguracaoPage {
   dadosUser: any;
   constructor(private socialSharing: SocialSharing, public app:  App, public loadingCtrl:LoadingController, public navCtrl: NavController, public navParams: NavParams) {
-    
+
     this.dadosUser = JSON.parse(localStorage.getItem('dta_user'));
     console.log(this.dadosUser);
   }
@@ -48,6 +48,6 @@ export class ConfiguracaoPage {
 });
   }
 
-  
+
 
 }

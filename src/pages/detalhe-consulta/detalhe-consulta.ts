@@ -10,7 +10,6 @@ import {TextDetalhePage} from '../text-detalhe/text-detalhe';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-detalhe-consulta',
   templateUrl: 'detalhe-consulta.html',

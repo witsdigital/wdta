@@ -8,7 +8,7 @@ import { IonicPage, NavController,ViewController, NavParams } from 'ionic-angula
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-text-detalhe',
   templateUrl: 'text-detalhe.html',
