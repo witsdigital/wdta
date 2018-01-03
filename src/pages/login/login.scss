@@ -5,6 +5,18 @@ page-login {
     margin-top:60%;
 
   }
+  video {
+       position: fixed;
+       opacity: 0.4;
+       top: 50%;
+       left: 50%;
+       min-width: 100%;
+       min-height: 100%;
+       width: auto;
+       height: auto;
+       z-index: -100;
+       transform: translateX(-50%) translateY(-50%);
+   }
 
   .imput{
 
