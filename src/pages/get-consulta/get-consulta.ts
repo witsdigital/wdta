@@ -1,7 +1,7 @@
 import { DetalheConsultaPage } from './../detalhe-consulta/detalhe-consulta';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { reorderArray } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 /**
@@ -20,10 +20,13 @@ export class GetConsultaPage {
   sintomas: any;
   allsintomas: any;
   patologias: any;
+  filtro: any;
 
+  
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
+    console.log(this.sintomas);
     this.getSintomas();
 
 
@@ -62,14 +65,15 @@ export class GetConsultaPage {
 
       }
 
-      filtro(tipo){
-        this.service.getPatologiasSintomasTipo(this.sintomas, tipo).then((data)=>{
-          this.allsintomas = data;
-          console.log(this.allsintomas);
-             },(err)=>{
-
-             });
+  filtroConsulta(){
+      if(this.filtro[0] == "") {
+        this.getSintomas();
       }
+      else {
+        
+      }
+    }
+
 
 
 }

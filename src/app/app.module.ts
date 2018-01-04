@@ -6,6 +6,7 @@ import { GetConsultaPage } from './../pages/get-consulta/get-consulta';
 import { RecPassPage } from '../pages/rec-pass/rec-pass';
 import { ConsultaPatologiaPage } from '../pages/consulta-patologia/consulta-patologia';
 import { DetalhePatologiaPage } from '../pages/detalhe-patologia/detalhe-patologia';
+import { DetalheSintomaPage } from '../pages/detalhe-sintoma/detalhe-sintoma';
 import { ConsultaPage } from '../pages/consulta/consulta';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -39,7 +40,8 @@ import {TextDetalhePage} from '../pages/text-detalhe/text-detalhe';
     ConsultaPatologiaPage,
     DetalhePatologiaPage,
     ConfiguracaoPage,
-    UpdatePassPage
+    UpdatePassPage,
+    DetalheSintomaPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import {TextDetalhePage} from '../pages/text-detalhe/text-detalhe';
     ConsultaPatologiaPage,
     DetalhePatologiaPage,
     ConfiguracaoPage,
-    UpdatePassPage
+    UpdatePassPage,
+    DetalheSintomaPage
   ],
   providers: [
     StatusBar,

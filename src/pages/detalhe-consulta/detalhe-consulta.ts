@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 import {TextDetalhePage} from '../text-detalhe/text-detalhe';
+import { DetalheSintomaPage } from '../detalhe-sintoma/detalhe-sintoma';
 /**
  * Generated class for the DetalheConsultaPage page.
  *
@@ -83,6 +84,15 @@ this.newsint.push({nome:this.allsintomas[i].nome, st:0})
 
     }
   }
+
+  detalhes(item) {
+    let modal = this.modalCtrl.create(DetalheSintomaPage,{sintomas:item});
+    modal.onDidDismiss(data => {
+  
+  
+    });
+    modal.present();
+   }
 
 
 
