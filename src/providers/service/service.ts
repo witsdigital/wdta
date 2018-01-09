@@ -41,6 +41,7 @@ api:string = 'http://www.meupainel.com.br/dta/';
 }
 
 
+
 getPatologiasSintomas(credentials) {
   return new Promise((resolve, reject) => {
     let headers = new Headers();
@@ -75,6 +76,20 @@ getSintomasTipo(credentials) {
     let headers = new Headers();
 
     this.http.post(this.api+'sintomas/getSintomasTipo', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+getPatologiasTipo(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'patologias/getPatologiasTipo', JSON.stringify(credentials), {headers: headers})
       .subscribe(res => {
         resolve(res.json());
       }, (err) => {

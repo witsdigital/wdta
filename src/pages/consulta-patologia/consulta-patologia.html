@@ -10,19 +10,31 @@
 
 
 <ion-content >
+
+
+    <div padding>
+        <ion-item>
+          <ion-label>Pesquisar por:</ion-label>
+          <ion-select interface="popover" [(ngModel)]="filtro" (ionChange)="filtroConsulta()">
+            <ion-option value="todos" selected>Todos</ion-option>
+            <ion-option value="0">Patologias</ion-option>
+            <ion-option value="1">Medicamentos</ion-option>
+            <ion-option value="2">Outros</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
   <div class="" >
     <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite o sintoma" (ionInput)="getSintomas($event)"></ion-searchbar>
-  <div *ngIf="tem" class="">
           <ion-item class=""  *ngFor="let item of items">
             <div (click)="consultar(item)">
               {{item.nome}}
             </div>
           </ion-item>
   </div>
-
-  </div>
-
-
+  
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 
 

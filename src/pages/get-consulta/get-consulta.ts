@@ -87,5 +87,19 @@ export class GetConsultaPage {
     }
 
 
+    doInfinite(): Promise<any> {
+      console.log('Begin async operation');
+  
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          for (var i = 0; i > this.allsintomas.length; i++) {
+            this.allsintomas.push(this.allsintomas[i]);
+          }
+          console.log('Async operation has ended');
+          resolve();
+        }, 500);
+      })
+    }
+
 
 }

@@ -1,7 +1,7 @@
 import { DetalhePatologiaPage } from './../detalhe-patologia/detalhe-patologia';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the ConsultaPatologiaPage page.
@@ -22,6 +22,9 @@ export class ConsultaPatologiaPage {
 
     lista:any[];
     items: any[];
+
+    filtro: any;
+    controle: any;
 
     constructor(public modalCtrl: ModalController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
@@ -95,4 +98,41 @@ export class ConsultaPatologiaPage {
   modal.present();
 
      }
+
+
+     filtroConsulta(){
+      if(this.filtro[0] == "todos") {
+        this.getDados();
+      }
+      else {
+        this.items = [];
+        for (var i = 0; i < this.filtro.length; i++) {
+          this.service.getPatologiasTipo(this.filtro[i]).then((data)=>{
+            this.controle = data; 
+            for (var j = 0; j < this.controle.length; j++) { 
+              this.items.push(this.controle[j]);
+            }
+            console.log(this.items);
+               },(err)=>{
+          });
+      }
+      }
+    }
+
+
+
+    doInfinite(): Promise<any> {
+      console.log('Begin async operation');
+  
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          for (var i = 0; i > this.items.length; i++) {
+            this.items.push(this.items[i]);
+          }
+          console.log('Async operation has ended');
+          resolve();
+        }, 500);
+      })
+    }
+
   }
