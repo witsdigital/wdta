@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>  {{sintomas.nome}}</ion-title>
+    <ion-buttons end>
+      <button (click)="close()" ion-button icon-only color="royal">
+        Fechar <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+<div class="textinfo">
+  {{sintomas.descricao}}
+</div>
+</ion-content>

@@ -15,12 +15,16 @@
       <ion-col col-12>
         <h1 class="titpatologoia">{{patologia.nome}}</h1>
       </ion-col>
+      <h6 *ngIf="patologia.tipo==0">Patologia</h6>
+      <h6 *ngIf="patologia.tipo==1">Medicamento</h6>
+      <h6 *ngIf="patologia.tipo==2">Outros</h6>
     </ion-row>
 
   <div>
 
   </div>
-  <p class="descricaopato">{{patologia.descricao}}</p>
+  <p class="descricaopato">{{patologia.descricao | slice:0:400}}...</p>
+  <button ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
 
   <ion-item-group>
   <ion-item-divider class="titlesintomas" color="light">Sintomas</ion-item-divider>
@@ -31,7 +35,9 @@
         <br>
         </div>
     </div>-->
+    <div (click)="detalhes(all)">
     {{all.nome}}
+  </div>
   </ion-item>
 </ion-item-group>
 

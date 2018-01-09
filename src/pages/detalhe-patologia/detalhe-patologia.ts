@@ -1,6 +1,8 @@
+import { TextDetalhePage } from './../text-detalhe/text-detalhe';
+import { DetalheSintomaPage } from './../detalhe-sintoma/detalhe-sintoma';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the DetalhePatologiaPage page.
@@ -23,7 +25,7 @@ export class DetalhePatologiaPage {
     newsintomas:any = {nome:'', st:''};
     newsint:any = [];
 
-    constructor(public service: ServiceProvider,public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public modalCtrl:ModalController,public service: ServiceProvider,public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
       this.patologia = navParams.get("item");
       console.log(this.patologia);
       this. getSintomas();
@@ -77,6 +79,25 @@ export class DetalhePatologiaPage {
           }
 
       }
+    }
+
+    detalhes(item) {
+      let modal = this.modalCtrl.create(DetalheSintomaPage,{sintomas:item});
+      modal.onDidDismiss(data => {
+    
+    
+      });
+      modal.present();
+     }
+
+     exibidesc(simtoma){
+      console.log(simtoma);
+      let modal = this.modalCtrl.create(TextDetalhePage,{texto:simtoma});
+      modal.onDidDismiss(data => {
+    
+    
+      });
+      modal.present();
     }
 
 

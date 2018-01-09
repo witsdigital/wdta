@@ -20,14 +20,16 @@ export class GetConsultaPage {
   sintomas: any;
   allsintomas: any;
   patologias: any;
-  filtro: any;
-
+  filtro: any = [0,1,2];
+  controle: any;
+  
   
   constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
     console.log(this.sintomas);
     this.getSintomas();
+    
 
 
   }
@@ -70,7 +72,17 @@ export class GetConsultaPage {
         this.getSintomas();
       }
       else {
-        
+        this.allsintomas = [];
+        for (var i = 0; i < this.filtro.length; i++) {
+          this.service.getPatologiasSintomasTipo(this.sintomas, this.filtro[i]).then((data)=>{
+            this.controle = data; 
+            for (var j = 0; j < this.controle.length; j++) { 
+              this.allsintomas.push(this.controle[j]);
+            }
+            console.log(this.allsintomas);
+               },(err)=>{
+          });
+      }
       }
     }
 

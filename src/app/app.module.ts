@@ -1,3 +1,5 @@
+import { AvisosPage } from './../pages/avisos/avisos';
+import { TutorialPage } from './../pages/tutorial/tutorial';
 import { ConfiguracaoPage } from './../pages/configuracao/configuracao';
 import { CadUserPage } from './../pages/cad-user/cad-user';
 import { LoginPage } from './../pages/login/login';
@@ -41,7 +43,9 @@ import {TextDetalhePage} from '../pages/text-detalhe/text-detalhe';
     DetalhePatologiaPage,
     ConfiguracaoPage,
     UpdatePassPage,
-    DetalheSintomaPage
+    DetalheSintomaPage,
+    TutorialPage,
+    AvisosPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import {TextDetalhePage} from '../pages/text-detalhe/text-detalhe';
     DetalhePatologiaPage,
     ConfiguracaoPage,
     UpdatePassPage,
-    DetalheSintomaPage
+    DetalheSintomaPage,
+    TutorialPage,
+    AvisosPage
   ],
   providers: [
     StatusBar,
