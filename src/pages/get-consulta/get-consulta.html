@@ -20,7 +20,7 @@
         <ion-item>
           <ion-label>Pesquisar por:</ion-label>
           <ion-select multiple [(ngModel)]="filtro" cancelText="Cancelar" okText="Ok" (ionChange)="filtroConsulta()">
-            <ion-option value="0">Patologias</ion-option>
+            <ion-option value="0">Condições Patologicas</ion-option>
             <ion-option value="1">Medicamentos</ion-option>
             <ion-option value="2">Outros</ion-option>
           </ion-select>
@@ -52,9 +52,8 @@
   </ion-list>
 
 
-
-  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
-      <ion-infinite-scroll-content></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+ <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
 
 </ion-content>

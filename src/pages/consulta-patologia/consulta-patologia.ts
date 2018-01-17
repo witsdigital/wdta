@@ -121,18 +121,17 @@ export class ConsultaPatologiaPage {
 
 
 
-    doInfinite(): Promise<any> {
+    doInfinite(infiniteScroll) {
       console.log('Begin async operation');
-  
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          for (var i = 0; i > this.items.length; i++) {
-            this.items.push(this.items[i]);
-          }
-          console.log('Async operation has ended');
-          resolve();
-        }, 500);
-      })
+      var j = 0;
+      setTimeout(() => {
+        for (var i = 0; i > 10; i++) {
+          this.items.push(this.items[j]);
+          j++;
+        }
+        console.log('Async operation has ended');
+        infiniteScroll.complete();
+      }, 500);
     }
 
   }

@@ -87,18 +87,18 @@ export class GetConsultaPage {
     }
 
 
-    doInfinite(): Promise<any> {
+    doInfinite(infiniteScroll) {
       console.log('Begin async operation');
+      var j = 0;
+      setTimeout(() => {
+        for (var i = 0; i > 10; i++) {
+          this.allsintomas.push(this.allsintomas[j]);
+          j++;
+        }
   
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          for (var i = 0; i > this.allsintomas.length; i++) {
-            this.allsintomas.push(this.allsintomas[i]);
-          }
-          console.log('Async operation has ended');
-          resolve();
-        }, 500);
-      })
+        console.log('Async operation has ended');
+        infiniteScroll.complete();
+      }, 500);
     }
 
 
