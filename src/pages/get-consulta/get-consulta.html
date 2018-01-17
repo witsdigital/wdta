@@ -20,13 +20,14 @@
         <ion-item>
           <ion-label>Pesquisar por:</ion-label>
           <ion-select multiple [(ngModel)]="filtro" cancelText="Cancelar" okText="Ok" (ionChange)="filtroConsulta()">
+            <ion-option value="">Todos</ion-option>
             <ion-option value="0">Condições Patologicas</ion-option>
             <ion-option value="1">Medicamentos</ion-option>
             <ion-option value="2">Outros</ion-option>
           </ion-select>
         </ion-item>
       </div>
-  <ion-list >
+  <ion-list  >
     <ion-item text-wrap *ngFor="let item of allsintomas">
         <div (click)="detalhes(item)">
             {{item.nome}}

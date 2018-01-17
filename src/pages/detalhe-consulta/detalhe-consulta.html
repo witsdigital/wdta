@@ -57,12 +57,12 @@ Ionic pages and navigation.
   <ion-item-group>
   <ion-item-divider class="titlesintomas" color="light">Sintomas</ion-item-divider>
   <ion-item class="listsinto" *ngFor="let all of allsintomas let i = index" >
-    <!--<div *ngFor="let item of sintomas">
+    <div *ngFor="let item of sintomas">
         <div *ngIf="all.nome == item.nome">
         <ion-icon name="checkmark">alerts</ion-icon>
         <br>
         </div>
-    </div>-->
+    </div>
     <div (click)=" detalhes(all)">
     {{all.nome}}
   </div>

@@ -20,7 +20,7 @@ export class GetConsultaPage {
   sintomas: any;
   allsintomas: any;
   patologias: any;
-  filtro: any = [0,1,2];
+  filtro: any = [''];
   controle: any;
   
   
@@ -79,12 +79,38 @@ export class GetConsultaPage {
             for (var j = 0; j < this.controle.length; j++) { 
               this.allsintomas.push(this.controle[j]);
             }
+
+           var aux;
+            for (var i = 0; i < this.allsintomas.length; i++){
+              for (var j = 0; j < this.allsintomas.length; j++){
+                   if ( this.allsintomas[i].nome < this.allsintomas[j].nome)
+                   {
+                       aux = this.allsintomas[i];
+                       this.allsintomas[i] = this.allsintomas[j];
+                       this.allsintomas[j] = aux;
+                   }
+               }
+           }
+
+           for (var i = 0; i < this.allsintomas.length; i++){
+            for (var j = 0; j < this.allsintomas.length; j++){
+                 if ( this.allsintomas[i].qtd > this.allsintomas[j].qtd)
+                 {
+                     aux = this.allsintomas[i];
+                     this.allsintomas[i] = this.allsintomas[j];
+                     this.allsintomas[j] = aux;
+                 }
+             }
+         }
+
+
             console.log(this.allsintomas);
                },(err)=>{
           });
       }
       }
     }
+
 
 
     doInfinite(infiniteScroll) {
