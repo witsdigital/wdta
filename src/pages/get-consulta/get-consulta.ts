@@ -1,15 +1,11 @@
 import { DetalheConsultaPage } from './../detalhe-consulta/detalhe-consulta';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { reorderArray } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
-/**
- * Generated class for the GetConsultaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
 
 @Component({
   selector: 'page-get-consulta',
@@ -24,7 +20,7 @@ export class GetConsultaPage {
   controle: any;
   
   
-  constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
     console.log(this.sintomas);
@@ -58,6 +54,12 @@ export class GetConsultaPage {
 
      getSintomas(){
 
+      let loader = this.loadingCtrl.create({
+        content: "Carregando...",
+        duration: 5000
+      });
+      loader.present();
+
           this.service.getPatologiasSintomas(this.sintomas).then((data)=>{
            this.allsintomas = data;
            console.log(this.allsintomas);
@@ -68,6 +70,11 @@ export class GetConsultaPage {
       }
 
   filtroConsulta(){
+    let loader = this.loadingCtrl.create({
+      content: "Carregando...",
+      duration: 5000
+    });
+    loader.present();
       if(this.filtro[0] == "") {
         this.getSintomas();
       }
@@ -83,7 +90,7 @@ export class GetConsultaPage {
            var aux;
             for (var i = 0; i < this.allsintomas.length; i++){
               for (var j = 0; j < this.allsintomas.length; j++){
-                   if ( this.allsintomas[i].nome < this.allsintomas[j].nome)
+                   if ( this.allsintomas[j].nome > this.allsintomas[i].nome)
                    {
                        aux = this.allsintomas[i];
                        this.allsintomas[i] = this.allsintomas[j];

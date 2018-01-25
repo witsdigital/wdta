@@ -1,7 +1,7 @@
 import { DetalhePatologiaPage } from './../detalhe-patologia/detalhe-patologia';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the ConsultaPatologiaPage page.
@@ -26,7 +26,13 @@ export class ConsultaPatologiaPage {
     filtro: any;
     controle: any;
 
-    constructor(public modalCtrl: ModalController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+      
+      let loader = this.loadingCtrl.create({
+        content: "Carregando...",
+        duration: 3000
+      });
+      loader.present();
 
     this.getDados();
 

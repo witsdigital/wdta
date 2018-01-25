@@ -1,6 +1,6 @@
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { GetConsultaPage } from '../get-consulta/get-consulta';
 
 /**
@@ -25,7 +25,15 @@ export class ConsultaPage {
   lista:any;
   items: any;
 
-  constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+
+    let loader = this.loadingCtrl.create({
+      content: "Carregando...",
+      duration: 1000
+    });
+    loader.present();
+
+
 
   this.getDados();
 
