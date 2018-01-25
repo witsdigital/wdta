@@ -60,11 +60,21 @@ Ionic pages and navigation.
   <ion-item class="listsinto" *ngFor="let all of allsintomas let i = index" >
     
   <div class="listsintomas" *ngIf="all.nome == item.nome" (click)="detalhes(all)">
-    {{all.nome}}  <ion-icon name="alert"></ion-icon>
+      <div *ngIf="all.tipo_sintoma==0"> 
+          {{all.nome}} <font color="blue">(Sintoma)</font> <ion-icon name="alert"></ion-icon>
+        </div>
+        <div *ngIf="all.tipo_sintoma==1"> 
+            {{all.nome}} <font color="blue">(Exame)</font> <ion-icon name="alert"></ion-icon>
+        </div>
   </div>      
     
   <div *ngIf="all.nome != item.nome" (click)="detalhes(all)">
-    {{all.nome}}
+    <div *ngIf="all.tipo_sintoma==0"> 
+      {{all.nome}} <font color="blue">(Sintoma)</font>
+    </div>
+    <div *ngIf="all.tipo_sintoma==1"> 
+        {{all.nome}} <font color="blue">(Exame)</font>
+      </div>
   </div>
   </ion-item>
 </div>
