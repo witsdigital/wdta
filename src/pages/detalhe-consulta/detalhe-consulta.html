@@ -1,3 +1,5 @@
+
+
 <!--
 Generated template for the DetalheConsultaPage page.
 
@@ -21,7 +23,7 @@ Ionic pages and navigation.
     <h6 *ngIf="patologia.tipo==1">Medicamento</h6>
     <h6 *ngIf="patologia.tipo==2">Outros</h6>
     </ion-col>
-    
+
     <ion-col>
       <div class="dadosinfo">
         Correspondência
@@ -51,28 +53,28 @@ Ionic pages and navigation.
   <div class="descpato">
 
 
-  <p >{{patologia.descricao | slice:0:400}}...</p>
+  <p [innerHTML]="patologia.descricao | slice:0:400" >...</p>
   <button ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
   <ion-item-divider class="titlesintomas" color="light">Sintomas</ion-item-divider>
   <div *ngFor="let item of sintomas">
-  <ion-item class="listsinto" *ngFor="let all of allsintomas let i = index" >
-    
+  <ion-item text-wrap class="listsinto" *ngFor="let all of allsintomas let i = index" >
+
   <div class="listsintomas" *ngIf="all.nome == item.nome" (click)="detalhes(all)">
-      <div *ngIf="all.tipo_sintoma==0"> 
+      <div *ngIf="all.tipo_sintoma==0">
           {{all.nome}} <font color="blue">(Sintoma)</font> <ion-icon name="alert"></ion-icon>
         </div>
-        <div *ngIf="all.tipo_sintoma==1"> 
+        <div *ngIf="all.tipo_sintoma==1">
             {{all.nome}} <font color="blue">(Exame)</font> <ion-icon name="alert"></ion-icon>
         </div>
-  </div>      
-    
+  </div>
+
   <div *ngIf="all.nome != item.nome" (click)="detalhes(all)">
-    <div *ngIf="all.tipo_sintoma==0"> 
+    <div *ngIf="all.tipo_sintoma==0">
       {{all.nome}} <font color="blue">(Sintoma)</font>
     </div>
-    <div *ngIf="all.tipo_sintoma==1"> 
+    <div *ngIf="all.tipo_sintoma==1">
         {{all.nome}} <font color="blue">(Exame)</font>
       </div>
   </div>

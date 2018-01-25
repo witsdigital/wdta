@@ -25,13 +25,13 @@
       </div>
   <div class="" >
     <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite a condição patológica" (ionInput)="getSintomas($event)"></ion-searchbar>
-          <ion-item class=""  *ngFor="let item of items">
+          <ion-item class="" text-wrap  *ngFor="let item of items">
             <div (click)="consultar(item)">
               {{item.nome}}
             </div>
           </ion-item>
   </div>
-  
+
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>

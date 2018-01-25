@@ -18,14 +18,14 @@ export class GetConsultaPage {
   patologias: any;
   filtro: any = [''];
   controle: any;
-  
-  
+
+
   constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
     console.log(this.sintomas);
     this.getSintomas();
-    
+
 
 
   }
@@ -56,12 +56,13 @@ export class GetConsultaPage {
 
       let loader = this.loadingCtrl.create({
         content: "Carregando...",
-        duration: 5000
+        duration: 10000
       });
       loader.present();
 
           this.service.getPatologiasSintomas(this.sintomas).then((data)=>{
            this.allsintomas = data;
+             loader.dismiss();
            console.log(this.allsintomas);
               },(err)=>{
 
@@ -82,8 +83,8 @@ export class GetConsultaPage {
         this.allsintomas = [];
         for (var i = 0; i < this.filtro.length; i++) {
           this.service.getPatologiasSintomasTipo(this.sintomas, this.filtro[i]).then((data)=>{
-            this.controle = data; 
-            for (var j = 0; j < this.controle.length; j++) { 
+            this.controle = data;
+            for (var j = 0; j < this.controle.length; j++) {
               this.allsintomas.push(this.controle[j]);
             }
 
@@ -128,7 +129,7 @@ export class GetConsultaPage {
           this.allsintomas.push(this.allsintomas[j]);
           j++;
         }
-  
+
         console.log('Async operation has ended');
         infiniteScroll.complete();
       }, 500);

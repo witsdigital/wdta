@@ -27,13 +27,6 @@ export class ConsultaPage {
 
   constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
-    let loader = this.loadingCtrl.create({
-      content: "Carregando...",
-      duration: 1000
-    });
-    loader.present();
-
-
 
   this.getDados();
 
@@ -82,7 +75,7 @@ this.initializeItems();
 
     addSintomas(item) {
 
-     
+
       var count = 0;
       if (this.sintomas.length==0){
         this.sintomas.push(item);
@@ -91,12 +84,12 @@ this.initializeItems();
         for (var i = 0; i < this.sintomas.length; i++) {
           if (item == this.sintomas[i]){
             count++;
-        } 
+        }
       }
       if (count == 0) {
         this.sintomas.push(item);
-      }    
-        
+      }
+
       }
       console.log(this.filtro);
         console.log(this.sintomas);

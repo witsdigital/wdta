@@ -13,7 +13,7 @@
 
   <br>
 
-  
+
     <div padding>
           <ion-item>
             <ion-label>Pesquisar por:</ion-label>
@@ -29,7 +29,7 @@
     <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite o sintoma" (ionInput)="getSintomas($event)"></ion-searchbar>
   <div *ngIf="tem" class="">
           <ion-item class=""  *ngFor="let item of items">
-            <div (click)="addSintomas(item); pesquisa=''; tem='';" class="">
+            <div text-wrap (click)="addSintomas(item); pesquisa=''; tem='';" class="">
               {{item.nome}}
             </div>
           </ion-item>
@@ -40,7 +40,7 @@
   <ion-item-group>
 
      <ion-list>
-    <ion-item class="itensdoencas" *ngFor="let item of sintomas">
+    <ion-item text-wrap class="itensdoencas" *ngFor="let item of sintomas">
         {{item.nome}}
       <ion-icon class="iconclose" (click)="delete(item)" name="ios-trash-outline" item-end></ion-icon>
     </ion-item>
