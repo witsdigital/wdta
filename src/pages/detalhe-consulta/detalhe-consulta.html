@@ -19,11 +19,13 @@ Ionic pages and navigation.
   <ion-row>
     <ion-col col-12>
       <h1 class="titpatologoia">{{patologia.nome}}</h1>
-      <h6>{{patologia.cod_area}}</h6><br>
-      <h6 *ngIf="patologia.tipo==0">Area: Condição patológica</h6>
-    <h6 *ngIf="patologia.tipo==1">área Medicamento</h6>
-    <h6 *ngIf="patologia.tipo==2">Outros</h6>
     </ion-col>
+    <ion-col col-12>
+        <h6>{{patologia.cod_area}}</h6>
+    </ion-col>
+    <h6 *ngIf="patologia.tipo==0">Condição patológica</h6>
+    <h6 *ngIf="patologia.tipo==1">Medicamento</h6>
+    <h6 *ngIf="patologia.tipo==2">Outros</h6>
 
     <ion-col>
       <div class="dadosinfo">
