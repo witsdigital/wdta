@@ -18,6 +18,9 @@
       <ion-col col-12>
         <h1 class="titpatologoia">{{patologia.nome}}</h1>
       </ion-col>
+      <ion-col col-12>
+          <h6>{{patologia.cod_area}}</h6>
+        </ion-col>
       <h6 *ngIf="patologia.tipo==0">Condição patológica</h6>
       <h6 *ngIf="patologia.tipo==1">Medicamento</h6>
       <h6 *ngIf="patologia.tipo==2">Outros</h6>
@@ -30,7 +33,7 @@
   <button ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
-  <ion-item-divider class="titlesintomas" color="light">Sintomas</ion-item-divider>
+  <ion-item-divider class="titlesintomas" color="light">Sinal/Sintomas/Exames</ion-item-divider>
   <ion-item class="listsinto" *ngFor="let all of allsintomas let i = index">
     <!--<div *ngFor="let item of sintomas">
         <div *ngIf="all.nome == item.nome">
@@ -39,7 +42,15 @@
         </div>
     </div>-->
     <div text-wrap (click)="detalhes(all)">
-    {{all.nome}}
+        <div *ngIf="all.tipo_sintoma==0">
+            {{all.nome}} <font color="blue">(Sintoma)</font>
+          </div>
+          <div *ngIf="all.tipo_sintoma==1">
+              {{all.nome}} <font color="blue">(Exame)</font>
+            </div>
+            <div *ngIf="all.tipo_sintoma==2">
+                {{all.nome}} <font color="blue">(Referência)</font> <ion-icon name="alert"></ion-icon>
+            </div>
   </div>
   </ion-item>
 </ion-item-group>

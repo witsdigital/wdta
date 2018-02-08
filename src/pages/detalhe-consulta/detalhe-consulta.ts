@@ -17,15 +17,20 @@ import { DetalheSintomaPage } from '../detalhe-sintoma/detalhe-sintoma';
 })
 export class DetalheConsultaPage {
 
-  sintomas: any;
+  sintomas: any = {};
+
   allsintomas: any;
   patologia: any;
   qtd=0;
   newsintomas:any = {nome:'', st:''};
   newsint:any = [];
 
+
+  sint;
+
   constructor(public modalCtrl:ModalController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.sintomas = navParams.get("sin");
+    console.log(this.sintomas);
     this.patologia = navParams.get("pat");
     this. getSintomas();
 
@@ -72,18 +77,7 @@ this.newsint.push({nome:this.allsintomas[i].nome, st:0})
 
 
   }
-  calcinfo(){
-    for(let i=0; i<this.allsintomas.length-1; i++){
-        for(let a = 0; a<this.sintomas.length-1;a++){
-            if(this.allsintomas[i].nome == this.sintomas[a].nome){
-              console.log('esta');
 
-            }
-
-        }
-
-    }
-  }
 
   detalhes(item) {
     let modal = this.modalCtrl.create(DetalheSintomaPage,{sintomas:item});

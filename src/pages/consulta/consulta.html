@@ -26,7 +26,7 @@
     </div>
 
   <div class="" >
-    <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite o sintoma" (ionInput)="getSintomas($event)"></ion-searchbar>
+    <ion-searchbar class="" [(ngModel)]="pesquisa" autocomplete="on" autocorrect="on" [animated]="true" placeholder="Digite o Sinal/Sintomas/Exames" (ionInput)="getSintomas($event)"></ion-searchbar>
   <div *ngIf="tem" class="">
           <ion-item class=""  *ngFor="let item of items">
             <div text-wrap (click)="addSintomas(item); pesquisa=''; tem='';" class="">

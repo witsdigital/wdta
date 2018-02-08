@@ -30,6 +30,12 @@ export class ConsultaPage {
 
   this.getDados();
 
+  let loader = this.loadingCtrl.create({
+    content: "Carregando...",
+    duration: 3000
+  });
+  loader.present();
+
   }
 
   ionViewDidLoad() {
@@ -50,7 +56,7 @@ this.initializeItems();
     if (val && val.trim() != '') {
       this.tem = true;
       this.items = this.items.filter((item) => {
-        return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.nome_semacento.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.nome_semcaracteres.toLowerCase().indexOf(val.toLowerCase()) > -1 );
       })
     }else{
           this.tem = false;
