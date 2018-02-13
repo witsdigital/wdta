@@ -75,7 +75,7 @@ Ionic pages and navigation.
         </div>
         <div *ngIf="all.tipo_sintoma==1">
             {{all.nome}} <font color="blue">(Exame)</font> 
-            <div *ngFor="let item of sintomas">
+            <div *ngFor="let item of sintomas" class="alerta">
               <div *ngIf="all.nome == item.nome">
               <ion-icon name="alert"></ion-icon>
               </div> 
@@ -83,7 +83,7 @@ Ionic pages and navigation.
           </div>
           <div *ngIf="all.tipo_sintoma==2">
               {{all.nome}} <font color="blue">(Referência)</font> 
-              <div *ngFor="let item of sintomas">
+              <div *ngFor="let item of sintomas" class="alerta">
                 <div *ngIf="all.nome == item.nome">
                 <ion-icon name="alert"></ion-icon>
                 </div> 
