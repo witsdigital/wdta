@@ -22,7 +22,7 @@ export class DetalheConsultaPage {
   allsintomas: any;
   patologia: any;
   qtd=0;
-  newsintomas:any = {nome:'', st:''};
+  newsintomas:any = [];
   newsint:any = [];
 
 
@@ -57,19 +57,46 @@ exibidesc(simtoma){
         for(let i in data){
           for(let a in this.sintomas){
             if(this.allsintomas[i].nome == this.sintomas[a].nome){
-this.newsint.push({nome:this.allsintomas[i].nome, st:1})
+this.newsint.push({nome:this.allsintomas[a].nome,
+  st:1,
+  tipo_sintoma: this.allsintomas[a].tipo_sintoma,
+  descricao: this.allsintomas[a].descricao
+})
 
 
 
           }else{
-this.newsint.push({nome:this.allsintomas[i].nome, st:0})
+this.newsint.push({
+  nome:this.allsintomas[a].nome,
+              st:0,
+              tipo_sintoma: this.allsintomas[a].tipo_sintoma,
+              descricao: this.allsintomas[a].descricao
+})
 
           }
           }
 
 
         }
-        console.log(this.newsint);
+
+
+        for (var a = 0; a < this.newsint.length; a++) {
+          var count = 0;
+          if(this.newsintomas.length == 0) {
+            this.newsintomas.push(this.newsint[a]);
+          } 
+          if(this.newsintomas.length != 0) {
+          for (var i = 0; i < this.newsintomas.length; i++) {
+            if(this.newsint[a].nome === this.newsintomas[i].nome){
+              count=1;
+            }
+          }
+          if(count == 0) {
+            this.newsintomas.push(this.newsint[a]);
+          }
+        }
+      }
+        console.log(this.newsintomas);
             },(err)=>{
 
             });

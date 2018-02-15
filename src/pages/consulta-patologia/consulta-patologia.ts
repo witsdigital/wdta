@@ -56,7 +56,7 @@ export class ConsultaPatologiaPage {
       if (val && val.trim() != '') {
         this.tem = true;
         this.items = this.items.filter((item) => {
-          return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1);
+          return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.nome_semacento.toLowerCase().indexOf(val.toLowerCase()) > -1);
         })
       }else{
             this.tem = false;
