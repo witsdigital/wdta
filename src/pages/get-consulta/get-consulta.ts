@@ -14,7 +14,7 @@ import { DecimalPipe } from '@angular/common';
 export class GetConsultaPage {
 
   sintomas: any;
-  allsintomas: any;
+  allsintomas: any = [''];
   patologias: any;
   filtro: any = [''];
   controle: any;
@@ -56,7 +56,7 @@ export class GetConsultaPage {
 
       let loader = this.loadingCtrl.create({
         content: "Carregando...",
-        duration: 10000
+        duration: 15000
       });
       loader.present();
 
@@ -72,12 +72,12 @@ export class GetConsultaPage {
 
   filtroConsulta(){
     let loader = this.loadingCtrl.create({
-      content: "Carregando...",
-      duration: 5000
+      content: "Carregando..."
     });
     loader.present();
       if(this.filtro[0] == "") {
         this.getSintomas();
+        loader.dismiss();
       }
       else {
         this.allsintomas = [];
@@ -113,6 +113,7 @@ export class GetConsultaPage {
 
 
             console.log(this.allsintomas);
+              loader.dismiss();
                },(err)=>{
           });
       }

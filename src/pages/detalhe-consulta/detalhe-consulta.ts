@@ -22,7 +22,7 @@ export class DetalheConsultaPage {
   allsintomas: any;
   patologia: any;
   qtd=0;
-  newsintomas:any = [];
+  newsintomas:any = {nome:'', st:''};
   newsint:any = [];
 
 
@@ -41,9 +41,9 @@ export class DetalheConsultaPage {
     console.log('ionViewDidLoad DetalheConsultaPage');
   }
 
-exibidesc(simtoma){
-  console.log(simtoma);
-  let modal = this.modalCtrl.create(TextDetalhePage,{texto:simtoma});
+exibidesc(sintoma){
+  console.log(sintoma);
+  let modal = this.modalCtrl.create(TextDetalhePage,{texto:sintoma});
   modal.onDidDismiss(data => {
 
 
@@ -52,51 +52,24 @@ exibidesc(simtoma){
 }
   getSintomas(){
 
-        this.service.getSintomasID(this.patologia).then((data)=>{
+        this.service.getSintomasID(this.sintomas, this.patologia.id_patologia).then((data)=>{
          this.allsintomas = data;
         for(let i in data){
           for(let a in this.sintomas){
             if(this.allsintomas[i].nome == this.sintomas[a].nome){
-this.newsint.push({nome:this.allsintomas[a].nome,
-  st:1,
-  tipo_sintoma: this.allsintomas[a].tipo_sintoma,
-  descricao: this.allsintomas[a].descricao
-})
+this.newsint.push({nome:this.allsintomas[i].nome, st:1})
 
 
 
           }else{
-this.newsint.push({
-  nome:this.allsintomas[a].nome,
-              st:0,
-              tipo_sintoma: this.allsintomas[a].tipo_sintoma,
-              descricao: this.allsintomas[a].descricao
-})
+this.newsint.push({nome:this.allsintomas[i].nome, st:0})
 
           }
           }
 
 
         }
-
-
-        for (var a = 0; a < this.newsint.length; a++) {
-          var count = 0;
-          if(this.newsintomas.length == 0) {
-            this.newsintomas.push(this.newsint[a]);
-          } 
-          if(this.newsintomas.length != 0) {
-          for (var i = 0; i < this.newsintomas.length; i++) {
-            if(this.newsint[a].nome === this.newsintomas[i].nome){
-              count=1;
-            }
-          }
-          if(count == 0) {
-            this.newsintomas.push(this.newsint[a]);
-          }
-        }
-      }
-        console.log(this.newsintomas);
+        console.log(this.allsintomas);
             },(err)=>{
 
             });

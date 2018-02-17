@@ -29,7 +29,7 @@
       </div>
   <ion-list >
 
-  <div *ngIf="allsintomas">
+  <div *ngIf="allsintomas!=''">
     <ion-item  text-wrap *ngFor="let item of allsintomas">
         <div (click)="detalhes(item)">
             {{item.nome}}
@@ -55,7 +55,7 @@
 
   <div *ngIf="allsintomas==''">
     <ion-item>
-      Desculpe, não encontramos nada relacionado com a pesquisa.
+      Desculpe, nada encontrado.
     </ion-item>
   </div>
 

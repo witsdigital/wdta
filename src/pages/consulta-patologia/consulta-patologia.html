@@ -15,9 +15,9 @@
     <div padding>
         <ion-item>
           <ion-label>Pesquisar por:</ion-label>
-          <ion-select interface="popover" [(ngModel)]="filtro" (ionChange)="filtroConsulta()">
+          <ion-select multiple [(ngModel)]="filtro" cancelText="Cancelar" okText="Ok" (ionChange)="filtroConsulta(); pesquisa=''">
             <ion-option value="todos" selected>Todos</ion-option>
-            <ion-option value="0">condições patológicas</ion-option>
+            <ion-option value="0">Condições patológicas</ion-option>
             <ion-option value="1">Medicamentos</ion-option>
             <ion-option value="2">Outros</ion-option>
           </ion-select>

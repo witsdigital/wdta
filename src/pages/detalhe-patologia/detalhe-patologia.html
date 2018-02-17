@@ -30,7 +30,7 @@
 
   </div>
   <p class="descricaopato" [innerHTML]="patologia.descricao | slice:0:400">...</p>
-  <button ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
+  <button ion-button small  *ngIf="patologia.descricao!=''" (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
   <ion-item-divider class="titlesintomas" color="light">Sinal/Sintomas/Exames</ion-item-divider>
@@ -49,7 +49,7 @@
               {{all.nome}} <font color="blue">(Exame)</font>
             </div>
             <div *ngIf="all.tipo_sintoma==2">
-                {{all.nome}} <font color="blue">(Referência)</font> <ion-icon name="alert"></ion-icon>
+                {{all.nome}} <font color="blue">(Referência)</font>
             </div>
   </div>
   </ion-item>

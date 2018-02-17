@@ -18,23 +18,20 @@ export class ConsultaPage {
 
   sintomas: any =[];
 
-  filtro: any = []
+  filtro: any = ['todos']
 
   tem:any;
 
   lista:any;
   items: any;
 
+  controle: any;
+
   constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
 
   this.getDados();
 
-  let loader = this.loadingCtrl.create({
-    content: "Carregando...",
-    duration: 3000
-  });
-  loader.present();
 
   }
 
@@ -67,11 +64,18 @@ this.initializeItems();
 
   getDados(){
 
+    let loader = this.loadingCtrl.create({
+      content: "Carregando...",
+      duration: 15000
+    });
+    loader.present();
+
     this.service.getSintomas().subscribe((data)=>{
 
      this.lista = data;
      console.log(this.lista);
      this.items = this.lista;
+     loader.dismiss();
         },(err)=>{
 
         });
@@ -97,6 +101,8 @@ this.initializeItems();
       }
 
       }
+
+      
       console.log(this.filtro);
         console.log(this.sintomas);
     }
@@ -114,14 +120,55 @@ this.initializeItems();
    }
 
    consultarTipo(tipo){
+
+    let loader = this.loadingCtrl.create({
+      content: "Carregando..."
+    });
+    loader.present();
+
+  
+
     this.service.getSintomasTipo(tipo).then((data)=>{
        this.lista = data;
        console.log(this.lista);
        this.items = this.lista;
+       loader.dismiss();
           },(err)=>{
 
           });
    }
+
+
+
+   
+   filtroConsulta(){
+
+    let loader = this.loadingCtrl.create({
+      content: "Carregando...",
+      duration: 15000
+    });
+    loader.present();
+
+    if(this.filtro[0] == "todos") {
+      this.getDados();
+      loader.dismiss();
+    }
+    else {
+      this.items = [];
+      for (var i = 0; i < this.filtro.length; i++) {
+        this.service.getSintomasTipo(this.filtro[i]).then((data)=>{
+          this.controle = data; 
+          for (var j = 0; j < this.controle.length; j++) { 
+            this.items.push(this.controle[j]);
+          }
+          console.log(this.items);
+          loader.dismiss();
+             },(err)=>{
+        });
+    }
+    }
+  }
+
 
 
 }

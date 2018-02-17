@@ -102,11 +102,11 @@ getPatologiasTipo(credentials) {
 
 
 
-  getSintomasID(credentials) {
+  getSintomasID(credentials, tipo) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
   
-      this.http.post(this.api+'sintomas/getappSintomasID', JSON.stringify(credentials), {headers: headers})
+      this.http.post(this.api+'sintomas/getappSintomasID/'+tipo, JSON.stringify(credentials), {headers: headers})
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
