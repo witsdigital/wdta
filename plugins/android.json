@@ -6,7 +6,11 @@
   "config_munge": {
     "files": {}
   },
-  "installed_plugins": {},
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    }
+  },
   "dependent_plugins": {
     "cordova-plugin-app-event": {
       "PACKAGE_NAME": "io.ionic.starter"
