@@ -14,20 +14,44 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class DetalheSintomaPage {
 
-
-  sintomas:any;
+  tamanhofont: any;
+  configfont: any;
+  sintomas: any;
 
   constructor(public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
     this.sintomas = navParams.get("sintomas");
     console.log(this.sintomas);
+    this.tamanhofont = 14;
+    this.configfont = {
+
+      'font-size': this.tamanhofont + 'px'
+
+    }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalheSintomaPage');
   }
 
-  close(){
+  close() {
     this.viewCtrl.dismiss();
+  }
+
+  aumentarfont() {
+    this.tamanhofont = this.tamanhofont + 1;
+    this.configfont = {
+
+      'font-size': this.tamanhofont + 'px'
+
+    }
+  }
+  diminuirfont() {
+    this.tamanhofont = this.tamanhofont - 1;
+    this.configfont = {
+
+      'font-size': this.tamanhofont + 'px'
+
+    }
   }
 
 

@@ -29,7 +29,7 @@
   <div>
 
   </div>
-  <p class="descricaopato" [innerHTML]="patologia.descricao | slice:0:400">...</p>
+  <p  [ngStyle]="configfont" class="descricaopato" [innerHTML]="patologia.descricao | slice:0:400">...</p>
   <button ion-button small  *ngIf="patologia.descricao!=''" (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
@@ -41,7 +41,7 @@
         <br>
         </div>
     </div>-->
-    <div text-wrap (click)="detalhes(all)">
+    <div  [ngStyle]="configfont" text-wrap (click)="detalhes(all)">
         <div *ngIf="all.tipo_sintoma==0">
             {{all.nome}} <font color="blue">(Sintoma)</font>
           </div>
@@ -59,3 +59,23 @@
 
 
   </ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <p>Acessibilidade</p>
+    <ion-buttons end>
+      <button (click)="aumentarfont()" ion-button icon-right color="royal">
+        fonte
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button (click)="diminuirfont()" ion-button icon-right color="royal">
+        fonte
+        <ion-icon name="md-remove"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

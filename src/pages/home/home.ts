@@ -13,6 +13,7 @@ import { AvisosPage } from '../avisos/avisos';
 })
 export class HomePage {
   dadosUser: any;
+
   constructor(public menu: MenuController, public navCtrl: NavController, public modalCtrl: ModalController) {
    
   }
@@ -33,6 +34,7 @@ export class HomePage {
   openConsultaP(item){
     this.navCtrl.setRoot(ConsultaPatologiaPage, {ct: item});
   }
+
 
   openConfiguracao(){
     this.navCtrl.push(ConfiguracaoPage);

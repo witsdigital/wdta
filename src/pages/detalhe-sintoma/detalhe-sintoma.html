@@ -13,5 +13,22 @@
 
 <ion-content padding>
 
-<div class="textinfo" [innerHTML]="sintomas.descricao"></div>
+<div  [ngStyle]="configfont" class="textinfo" [innerHTML]="sintomas.descricao"></div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p>Acessibilidade</p>
+    <ion-buttons end>
+      <button (click)="aumentarfont()" ion-button icon-right color="royal">
+        fonte
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button (click)="diminuirfont()" ion-button icon-right color="royal">
+        fonte
+        <ion-icon name="md-remove"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

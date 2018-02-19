@@ -18,79 +18,103 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController } 
 })
 export class DetalhePatologiaPage {
 
-    sintomas: any;
-    allsintomas: any;
-    patologia: any;
-    area: any = [];
-    newsintomas:any = {nome:'', st:''};
-    newsint:any = [];
+  sintomas: any;
+  allsintomas: any;
+  patologia: any;
+  area: any = [];
+  newsintomas: any = { nome: '', st: '' };
+  newsint: any = [];
+  tamanhofont: any;
+  configfont: any;
 
-    constructor(public modalCtrl:ModalController,public service: ServiceProvider,public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
-      this.patologia = navParams.get("item");
-      console.log(this.patologia);
-      this. getSintomas();
-      this.getArea();
+  constructor(public modalCtrl: ModalController, public service: ServiceProvider, public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
+    this.patologia = navParams.get("item");
+    console.log(this.patologia);
+    this.getSintomas();
+    this.getArea();
+    this.tamanhofont = 14;
+    this.configfont = {
 
+      'font-size': this.tamanhofont + 'px'
 
     }
 
-    ionViewDidLoad() {
-      console.log('ionViewDidLoad DetalheConsultaPage');
-    }
 
-    close(){
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad DetalheConsultaPage');
+  }
+
+  close() {
 
     this.viewCtrl.dismiss();
   }
 
 
+  aumentarfont() {
+    this.tamanhofont = this.tamanhofont + 1;
+    this.configfont = {
 
-  getArea(){
-
-    this.service.getArea(this.patologia).then((data)=>{
-     this.area = data;
-        },(err)=>{
-
-        });
-
-      }
-
-
-    getSintomas(){
-
-          this.service.getappSintomasPatologia(this.patologia.id_patologia).then((data)=>{
-           this.allsintomas = data;
-
-              },(err)=>{
-
-              });
-
-
+      'font-size': this.tamanhofont + 'px'
 
     }
+  }
+  diminuirfont() {
+    this.tamanhofont = this.tamanhofont - 1;
+    this.configfont = {
 
+      'font-size': this.tamanhofont + 'px'
 
-    detalhes(item) {
-      let modal = this.modalCtrl.create(DetalheSintomaPage,{sintomas:item});
-      modal.onDidDismiss(data => {
-    
-    
-      });
-      modal.present();
-     }
-
-     exibidesc(simtoma){
-      console.log(simtoma);
-      let modal = this.modalCtrl.create(TextDetalhePage,{texto:simtoma});
-      modal.onDidDismiss(data => {
-    
-    
-      });
-      modal.present();
     }
+  }
+
+  getArea() {
+
+    this.service.getArea(this.patologia).then((data) => {
+      this.area = data;
+    }, (err) => {
+
+    });
+
+  }
 
 
+  getSintomas() {
+
+    this.service.getappSintomasPatologia(this.patologia.id_patologia).then((data) => {
+      this.allsintomas = data;
+
+    }, (err) => {
+
+    });
 
 
 
   }
+
+
+  detalhes(item) {
+    let modal = this.modalCtrl.create(DetalheSintomaPage, { sintomas: item });
+    modal.onDidDismiss(data => {
+
+
+    });
+    modal.present();
+  }
+
+  exibidesc(simtoma) {
+    console.log(simtoma);
+    let modal = this.modalCtrl.create(TextDetalhePage, { texto: simtoma });
+    modal.onDidDismiss(data => {
+
+
+    });
+    modal.present();
+  }
+
+
+
+
+
+}

@@ -6,12 +6,25 @@ Generated template for the DetalheConsultaPage page.
 See http://ionicframework.com/docs/components/#navigation for more info on
 Ionic pages and navigation.
 -->
+
+
+<style>
+  .teste{
+
+  }
+</style>
+
+
 <ion-header>
-
-  <ion-navbar color="primary">
+  <ion-toolbar color="primary">
+   
     <ion-title>{{patologia.nome}}</ion-title>
-  </ion-navbar>
-
+    <ion-buttons end>
+      <button (click)="aumentarfont()"  ion-button icon-only color="royal">
+        <ion-icon name="md-resize"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -20,10 +33,10 @@ Ionic pages and navigation.
   <div padding>
   <ion-row>
     <ion-col col-12>
-      <h1 class="titpatologoia">{{patologia.nome}}</h1>
+      <h1 [ngStyle]="configfont" class="titpatologoia">{{patologia.nome}}</h1>
     </ion-col>
     <ion-col col-12>
-        <h6 *ngFor="let p of area">{{p.nome}}</h6>
+        <h6 [ngStyle]="configfont" *ngFor="let p of area">{{p.nome}}</h6>
     
     <h6 *ngIf="patologia.tipo==0">Condição patológica</h6>
     <h6 *ngIf="patologia.tipo==1">Medicamento</h6>
@@ -31,9 +44,10 @@ Ionic pages and navigation.
     <br>
   </ion-col>
     <ion-col>
-      <div class="dadosinfo">
+      <div style=" font-size:{{tamanhofont}}" class="teste dadosinfo">
         Correspondência
         Patológica
+     
 
       </div>
 
@@ -59,7 +73,7 @@ Ionic pages and navigation.
   <div class="descpato">
 
 
-  <p [innerHTML]="patologia.descricao | slice:0:400" >...</p>
+  <p  [ngStyle]="configfont" [innerHTML]="patologia.descricao | slice:0:400" >...</p>
   <button *ngIf="patologia.descricao" ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
@@ -67,14 +81,14 @@ Ionic pages and navigation.
   
   <ion-item text-wrap class="listsinto" *ngFor="let all of allsintomas let i = index" >
     
-  <div class="listsintomas" (click)="detalhes(all)">
+  <div [ngStyle]="configfont" class="listsintomas" (click)="detalhes(all)">
       <div *ngIf="all.tipo_sintoma==0">
           <div class="negrito" *ngIf="all.corres==1">{{all.nome}} <font color="blue">(Sintoma)</font> <ion-icon name="medkit"></ion-icon></div>
-            <div *ngIf="all.corres==0">{{all.nome}} <font color="blue">(Sintoma)</font></div>
+            <div   *ngIf="all.corres==0">{{all.nome}} <font color="blue">(Sintoma)</font></div>
 
           </div>
         <div *ngIf="all.tipo_sintoma==1">
-            <div class="negrito" *ngIf="all.corres==1">{{all.nome}} <font color="blue">(Exame)</font> <ion-icon name="medkit"></ion-icon></div>
+            <div  class="negrito" *ngIf="all.corres==1">{{all.nome}} <font color="blue">(Exame)</font> <ion-icon name="medkit"></ion-icon></div>
             <div *ngIf="all.corres==0">{{all.nome}} <font color="blue">(Exame)</font></div>
           </div>
           <div *ngIf="all.tipo_sintoma==2">
@@ -92,3 +106,20 @@ Ionic pages and navigation.
 
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p>Acessibilidade</p>
+    <ion-buttons end>
+      <button (click)="aumentarfont()"  ion-button icon-right color="royal">
+        fonte
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button (click)="diminuirfont()"  ion-button icon-right color="royal">
+        fonte
+        <ion-icon name="md-remove"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
