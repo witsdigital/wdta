@@ -21,7 +21,7 @@ export class DetalhePatologiaPage {
     sintomas: any;
     allsintomas: any;
     patologia: any;
-    qtd=0;
+    area: any = [];
     newsintomas:any = {nome:'', st:''};
     newsint:any = [];
 
@@ -29,6 +29,7 @@ export class DetalhePatologiaPage {
       this.patologia = navParams.get("item");
       console.log(this.patologia);
       this. getSintomas();
+      this.getArea();
 
 
     }
@@ -41,26 +42,25 @@ export class DetalhePatologiaPage {
 
     this.viewCtrl.dismiss();
   }
+
+
+
+  getArea(){
+
+    this.service.getArea(this.patologia).then((data)=>{
+     this.area = data;
+        },(err)=>{
+
+        });
+
+      }
+
+
     getSintomas(){
 
-          this.service.getSintomasID(this.patologia).then((data)=>{
+          this.service.getappSintomasPatologia(this.patologia.id_patologia).then((data)=>{
            this.allsintomas = data;
-          for(let i in data){
-            for(let a in this.sintomas){
-              if(this.allsintomas[i].nome == this.sintomas[a].nome){
-  this.newsint.push({nome:this.allsintomas[i].nome, st:1})
 
-
-
-            }else{
-  this.newsint.push({nome:this.allsintomas[i].nome, st:0})
-
-            }
-            }
-
-
-          }
-          console.log(this.newsint);
               },(err)=>{
 
               });
@@ -68,18 +68,7 @@ export class DetalhePatologiaPage {
 
 
     }
-    calcinfo(){
-      for(let i=0; i<this.allsintomas.length-1; i++){
-          for(let a = 0; a<this.sintomas.length-1;a++){
-              if(this.allsintomas[i].nome == this.sintomas[a].nome){
-                console.log('esta');
 
-              }
-
-          }
-
-      }
-    }
 
     detalhes(item) {
       let modal = this.modalCtrl.create(DetalheSintomaPage,{sintomas:item});
@@ -99,6 +88,8 @@ export class DetalhePatologiaPage {
       });
       modal.present();
     }
+
+
 
 
 

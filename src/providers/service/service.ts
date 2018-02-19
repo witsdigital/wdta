@@ -115,6 +115,34 @@ getPatologiasTipo(credentials) {
     });
   }
 
+  getappSintomasPatologia(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'sintomas/getappsintomaspatologia/', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+
+
+  getArea(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'patologias/getArea/', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   
   postDatas(credentials, type) {
   return new Promise((resolve, reject) => {

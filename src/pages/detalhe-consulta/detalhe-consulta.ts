@@ -24,7 +24,7 @@ export class DetalheConsultaPage {
   qtd=0;
   newsintomas:any = {nome:'', st:''};
   newsint:any = [];
-
+area: any = [];
 
   sint;
 
@@ -34,12 +34,27 @@ export class DetalheConsultaPage {
     this.patologia = navParams.get("pat");
     this. getSintomas();
 
+    
+      this.getArea();
+  
+  
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalheConsultaPage');
   }
+  getArea(){
+
+    this.service.getArea(this.patologia).then((data)=>{
+     this.area = data;
+        },(err)=>{
+
+        });
+
+      }
+
+
 
 exibidesc(sintoma){
   console.log(sintoma);

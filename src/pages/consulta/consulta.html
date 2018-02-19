@@ -17,11 +17,11 @@
     <div padding>
           <ion-item>
             <ion-label>Pesquisar por:</ion-label>
-            <ion-select ion-select multiple [(ngModel)]="filtro" cancelText="Cancelar" okText="Ok" (ionChange)="filtroConsulta(); pesquisa=''">
-                <ion-option value="2">Referências</ion-option>
-              <ion-option value="1">Exames</ion-option>
-              <ion-option value="0" >Sintomas</ion-option>
+            <ion-select multiple [(ngModel)]="filtro" cancelText="Cancelar" okText="Ok" (ionChange)="filtroConsulta(); pesquisa=''">
               <ion-option value="todos">Todos</ion-option>
+              <ion-option value="0" >Sintomas</ion-option>
+              <ion-option value="1">Exames</ion-option>
+                <ion-option value="2">Referências</ion-option>
             </ion-select>
           </ion-item>
     </div>
