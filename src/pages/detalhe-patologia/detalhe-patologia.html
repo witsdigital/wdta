@@ -33,7 +33,7 @@
   <button ion-button small  *ngIf="patologia.descricao!=''" (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
-  <ion-item-divider class="titlesintomas" color="light">Sinal/Sintomas/Exames</ion-item-divider>
+  <ion-item-divider class="titlesintomas" color="light">Itens</ion-item-divider>
   <ion-item class="listsinto" *ngFor="let all of allsintomas let i = index">
     <!--<div *ngFor="let item of sintomas">
         <div *ngIf="all.nome == item.nome">
@@ -43,7 +43,7 @@
     </div>-->
     <div  [ngStyle]="configfont" text-wrap (click)="detalhes(all)">
         <div *ngIf="all.tipo_sintoma==0">
-            {{all.nome}} <font color="blue">(Sintoma)</font>
+            {{all.nome}} <font color="blue">(Sinal/Sintoma)</font>
           </div>
           <div *ngIf="all.tipo_sintoma==1">
               {{all.nome}} <font color="blue">(Exame)</font>

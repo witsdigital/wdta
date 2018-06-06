@@ -16,10 +16,10 @@
 
     <div padding>
           <ion-item>
-            <ion-label>Pesquisar por:</ion-label>
+            <ion-label>Pesquisar Por:</ion-label>
             <ion-select multiple [(ngModel)]="filtro" cancelText="Cancelar" okText="Ok" (ionChange)="filtroConsulta(); pesquisa=''">
               <ion-option value="todos">Todos</ion-option>
-              <ion-option value="0" >Sintomas</ion-option>
+              <ion-option value="0" >Sinais/Sintomas</ion-option>
               <ion-option value="1">Exames</ion-option>
                 <ion-option value="2">Referências</ion-option>
             </ion-select>
@@ -27,7 +27,7 @@
     </div>
 
   <div class="" >
-    <ion-searchbar class="" [(ngModel)]="pesquisa" autocomplete="on" autocorrect="on" [animated]="true" placeholder="Digite o Sinal/Sintomas/Exames" (ionInput)="getSintomas($event)"></ion-searchbar>
+    <ion-searchbar class="" [(ngModel)]="pesquisa" autocomplete="on" autocorrect="on" [animated]="false" placeholder="Digite o item" (ionInput)="getSintomas($event)"></ion-searchbar>
   <div *ngIf="tem" class="">
           <ion-item class=""  *ngFor="let item of items">
             <div text-wrap (click)="addSintomas(item); pesquisa=''; tem='';" class="">

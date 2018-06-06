@@ -1,7 +1,7 @@
 import { DetalhePatologiaPage } from './../detalhe-patologia/detalhe-patologia';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the ConsultaPatologiaPage page.
@@ -54,6 +54,10 @@ export class ConsultaPatologiaPage {
           this.items = this.lista;
 
        }
+       
+       close(){
+        this.viewCtrl.dismiss();
+      }
 
   getSintomas(ev: any) {
 

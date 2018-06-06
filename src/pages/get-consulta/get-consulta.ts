@@ -1,7 +1,7 @@
 import { DetalheConsultaPage } from './../detalhe-consulta/detalhe-consulta';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { reorderArray } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 
@@ -15,12 +15,13 @@ export class GetConsultaPage {
 
   sintomas: any;
   allsintomas: any = [''];
+  mensagem = 'Aguarde...';
   patologias: any;
   filtro: any = [''];
   controle: any;
 
 
-  constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl: ModalController, public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
     console.log(this.sintomas);
@@ -46,11 +47,21 @@ export class GetConsultaPage {
     }
 
     detalhes(item) {
-      this.navCtrl.push(DetalheConsultaPage, {
+      let modal = this.modalCtrl.create(DetalheConsultaPage,{
         sin: this.sintomas,
         pat: item
       });
-     }
+ modal.onDidDismiss(data => {
+
+
+ });
+ modal.present();
+
+}
+
+close(){
+  this.viewCtrl.dismiss();
+}
 
      getSintomas(){
 
@@ -62,6 +73,7 @@ export class GetConsultaPage {
 
           this.service.getPatologiasSintomas(this.sintomas).then((data)=>{
            this.allsintomas = data;
+           this.mensagem = 'Desculpe, nada encontrado';
              loader.dismiss();
            console.log(this.allsintomas);
               },(err)=>{

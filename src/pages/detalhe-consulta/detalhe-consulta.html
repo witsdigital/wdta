@@ -1,26 +1,16 @@
-
-
-<!--
-Generated template for the DetalheConsultaPage page.
-
-See http://ionicframework.com/docs/components/#navigation for more info on
-Ionic pages and navigation.
--->
-
-
-<style>
-  .teste{
-
-  }
-</style>
-
-
 <ion-header>
   <ion-toolbar color="primary">
-   
+
     <ion-title>{{patologia.nome}}</ion-title>
+    <ion-buttons end>
+      <button (click)="close()" ion-button icon-only color="royal">
+        Fechar <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 
 
 <ion-content >
@@ -72,14 +62,14 @@ Ionic pages and navigation.
   <button *ngIf="patologia.descricao" ion-button small (click)="exibidesc(patologia)"> Ver completa</button>
 </div>
   <ion-item-group>
-  <ion-item-divider class="titlesintomas" color="light">Sinal/Sintomas/Exames</ion-item-divider>
+  <ion-item-divider class="titlesintomas" color="light">Itens</ion-item-divider>
   
   <ion-item text-wrap class="listsinto" *ngFor="let all of allsintomas let i = index" >
     
   <div [ngStyle]="configfont" class="listsintomas" (click)="detalhes(all)">
       <div *ngIf="all.tipo_sintoma==0">
-          <div class="negrito" *ngIf="all.corres==1">{{all.nome}} <font color="blue">(Sintoma)</font> <ion-icon name="medkit"></ion-icon></div>
-            <div   *ngIf="all.corres==0">{{all.nome}} <font color="blue">(Sintoma)</font></div>
+          <div class="negrito" *ngIf="all.corres==1">{{all.nome}} <font color="blue">(Sinal/Sintoma)</font> <ion-icon name="medkit"></ion-icon></div>
+            <div   *ngIf="all.corres==0">{{all.nome}} <font color="blue">(Sinal/Sintoma)</font></div>
 
           </div>
         <div *ngIf="all.tipo_sintoma==1">

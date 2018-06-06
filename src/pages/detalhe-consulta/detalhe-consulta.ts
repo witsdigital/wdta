@@ -1,6 +1,6 @@
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 import { TextDetalhePage } from '../text-detalhe/text-detalhe';
 import { DetalheSintomaPage } from '../detalhe-sintoma/detalhe-sintoma';
@@ -31,7 +31,7 @@ export class DetalheConsultaPage {
   tamanhofont: any;
   configfont: any;
 
-  constructor(public modalCtrl: ModalController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl: ModalController,public viewCtrl: ViewController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.tamanhofont = 14;
     this.configfont = {
   
@@ -78,6 +78,10 @@ export class DetalheConsultaPage {
 
     });
 
+  }
+
+  close(){
+    this.viewCtrl.dismiss();
   }
 
 

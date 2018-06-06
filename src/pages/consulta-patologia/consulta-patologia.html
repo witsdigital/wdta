@@ -24,7 +24,7 @@
         </ion-item>
       </div>
   <div class="" >
-    <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="true" placeholder="Digite a condição patológica" (ionInput)="getSintomas($event)"></ion-searchbar>
+    <ion-searchbar class="" [(ngModel)]="pesquisa" [animated]="false" placeholder="Digite a condição patológica" (ionInput)="getSintomas($event)"></ion-searchbar>
           <ion-item class="" text-wrap  *ngFor="let item of items">
             <div (click)="consultar(item)">
               {{item.nome}}
