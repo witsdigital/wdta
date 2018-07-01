@@ -26,7 +26,7 @@ export class ConsultaPatologiaPage {
     filtro: any;
     controle: any;
 
-    constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public viewCtrl: ViewController, public modalCtrl: ModalController, public loadingCtrl: LoadingController, public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
       
       let loader = this.loadingCtrl.create({
         content: "Carregando...",

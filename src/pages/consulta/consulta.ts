@@ -26,6 +26,7 @@ export class ConsultaPage {
   items: any;
 
   controle: any;
+  pesquisa: any;
 
   constructor(public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
@@ -53,7 +54,7 @@ this.initializeItems();
     if (val && val.trim() != '') {
       this.tem = true;
       this.items = this.items.filter((item) => {
-        return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.nome_semacento.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.nome_semcaracteres.toLowerCase().indexOf(val.toLowerCase()) > -1 );
+        return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.nome_semacento.toLowerCase().indexOf(val.toLowerCase()) > -1  );
       })
     }else{
           this.tem = false;
@@ -101,10 +102,19 @@ this.initializeItems();
       }
 
       }
-
-      
+      let loader = this.loadingCtrl.create({
+        content: "Item adicionado a pesquisa",
+        duration: 500
+      });
+      loader.present();
       console.log(this.filtro);
         console.log(this.sintomas);
+    }
+
+    onCancel(ev)
+    {
+        this.initializeItems();
+        ev.stopPropagation();
     }
 
     delete(item){
@@ -118,6 +128,12 @@ this.initializeItems();
       item: this.sintomas
     });
    }
+
+   finalizar(){
+   this.tem="";
+   this.pesquisa="";
+   }
+
 
    consultarTipo(tipo){
 

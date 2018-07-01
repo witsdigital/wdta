@@ -4,6 +4,15 @@ page-consulta {
      word-wrap: break-word;
   color: #00b0fe;
 }
+
+.texto2{
+  
+  font-style: italic;
+  padding: 3px;
+  float: right;
+color: #b1f790;
+}
+
 .boxsearsh{
   padding: 10px 0px 15px 0px;
 }
@@ -14,6 +23,17 @@ page-consulta {
 .iconclose{
   color: red;
 }
+
+.bar {
+  width: 85%;
+  display: inline-block;
+}
+
+.bar2 {
+  
+  display: inline-block;
+}
+
 .searbarr{
 
   input{

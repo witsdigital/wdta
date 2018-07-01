@@ -1,7 +1,7 @@
 import { DetalheConsultaPage } from './../detalhe-consulta/detalhe-consulta';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController, ViewController } from 'ionic-angular';
 import { reorderArray } from 'ionic-angular';
 import { DecimalPipe } from '@angular/common';
 
@@ -21,7 +21,7 @@ export class GetConsultaPage {
   controle: any;
 
 
-  constructor(public modalCtrl: ModalController, public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public viewCtrl: ViewController, public modalCtrl: ModalController, public service: ServiceProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
 
     this.sintomas = navParams.get("item");
     console.log(this.sintomas);

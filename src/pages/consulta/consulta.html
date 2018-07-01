@@ -27,17 +27,33 @@
     </div>
 
   <div class="" >
-    <ion-searchbar class="" [(ngModel)]="pesquisa" autocomplete="on" autocorrect="on" [animated]="false" placeholder="Digite o item" (ionInput)="getSintomas($event)"></ion-searchbar>
+      <div class="bar" >
+    <ion-searchbar cancelButtonText="Fechar" [(ngModel)]="pesquisa"  placeholder="Digite o item" (ionInput)="getSintomas($event)" ></ion-searchbar>
+  </div>
+  <div class="bar2" >
+    <button [disabled]="!pesquisa" class="btnconsult"  ion-button (click)="finalizar()">
+     Ok
+    </button>
+  </div>
   <div *ngIf="tem" class="">
-          <ion-item class=""  *ngFor="let item of items">
-            <div text-wrap (click)="addSintomas(item); pesquisa=''; tem='';" class="">
+      <ion-list>
+          <ion-item  *ngFor="let item of items">
+            <div text-wrap  (click)="addSintomas(item);"  class="">
               {{item.nome}}
+              <div *ngFor="let p of sintomas">
+                <div *ngIf="p.nome == item.nome" class="texto2">
+                  Adicionado
+                </div>
+              </div>
             </div>
+              
           </ion-item>
+        </ion-list>
   </div>
 
   </div>
 
+  <div *ngIf="!pesquisa">
   <ion-item-group>
 
      <ion-list>
@@ -54,5 +70,5 @@
    Consultar
    </button>
    </div>
-
+  </div>
 </ion-content>
