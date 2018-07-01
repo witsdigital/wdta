@@ -31,14 +31,14 @@
     <ion-searchbar cancelButtonText="Fechar" [(ngModel)]="pesquisa"  placeholder="Digite o item" (ionInput)="getSintomas($event)" ></ion-searchbar>
   </div>
   <div class="bar2" >
-    <button [disabled]="!pesquisa" class="btnconsult"  ion-button (click)="finalizar()">
+    <button [disabled]="!pesquisa" class="" color="light" ion-button (click)="finalizar()">
      Ok
     </button>
   </div>
-  <div *ngIf="tem" class="">
+  <div *ngIf="tem">
       <ion-list>
           <ion-item  *ngFor="let item of items">
-            <div text-wrap  (click)="addSintomas(item);"  class="">
+            <div text-wrap  (click)="addSintomas(item);">
               {{item.nome}}
               <div *ngFor="let p of sintomas">
                 <div *ngIf="p.nome == item.nome" class="texto2">
@@ -69,7 +69,7 @@
    <button [disabled]="sintomas.length==0" class="btnconsult" color="secondary" ion-button (click)="consultar()" round>
    Consultar
    </button>
-   <button [disabled]="sintomas.length==0" class="btnconsult" color="light" ion-button (click)="limpar()" round>
+   <button [disabled]="sintomas.length==0" class="btnconsult" color="danger" ion-button (click)="limpar()" round>
       Apagar itens
       </button>
 

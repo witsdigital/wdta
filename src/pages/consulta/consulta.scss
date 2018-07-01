@@ -26,11 +26,15 @@ color: #2d8d00;
 
 .bar {
   width: 85%;
+  float: left;
   display: inline-block;
 }
 
 .bar2 {
-  
+  width: 10%;
+  margin-top: 8px;
+  padding: 0px;
+  float: left;
   display: inline-block;
 }
 
