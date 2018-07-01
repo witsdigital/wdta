@@ -107,6 +107,11 @@ this.initializeItems();
         duration: 500
       });
       loader.present();
+
+
+
+
+
       console.log(this.filtro);
         console.log(this.sintomas);
     }
@@ -133,6 +138,11 @@ this.initializeItems();
    this.tem="";
    this.pesquisa="";
    }
+
+   limpar(){
+    this.sintomas=[];
+    
+    }
 
 
    consultarTipo(tipo){
